@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'nokogiri'
+require 'open-uri'
+
+Prop.all.each {|p| p.destroy}
+
+ESPN = "http://streak.espn.com/en/"
+@doc = Nokogiri::HTML(open(ESPN))
+props = @doc.css("div .matchup-container")
+
+props.each do |p|
+  prop = Prop.create(
+    title:  p.css(".gamequestion").text,
+    start_time: p.css("div .startTime").text,
+    sport: p.css(".sport-description").text,
+    away_team: p.css("td span strong")[0].text,
+    home_team: p.css("td span strong")[1].text
+  )
+end
