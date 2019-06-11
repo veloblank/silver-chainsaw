@@ -3,7 +3,6 @@
 ESPN = "http://streak.espn.com/en/"
 @doc = Nokogiri::HTML(open(ESPN))
 props = @doc.css(".matchup-container")
-db_props = Prop.all
 
 props.each do |p|
   prop = Prop.new(
@@ -13,7 +12,7 @@ props.each do |p|
     away_team: p.css("td span strong")[0].text,
     home_team: p.css("td span strong")[1].text
   )
-  unless db_props.any? {|db_prop| db_prop.to_s == prop.to_s}
+  unless Prop.all.any? {|db_prop| db_prop.to_s == prop.to_s}
     prop.save
   end
 end
