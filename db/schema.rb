@@ -18,11 +18,12 @@ ActiveRecord::Schema.define(version: 20190610204148) do
     t.string   "sport"
     t.string   "home_team"
     t.string   "away_team"
+    t.string   "espn_game_identifier"
     t.boolean  "home_team_won?"
     t.boolean  "away_team_won?"
-    t.boolean  "scored_by_admin?", default: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.boolean  "scored_by_admin?",     default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
 end

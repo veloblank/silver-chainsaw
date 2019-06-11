@@ -1,7 +1,10 @@
 class Prop < ApplicationRecord
 
-  def to_s
-    "Title: #{@title}, #{away_team} @#{home_team} being played at #{@start_time}"
+
+  #this method helps check for duplicates by comparing the object's attributes as a string
+  #with other objects in the database
+  def gamecast_s
+    "Title: #{self.title} on ESPN Gamecast: #{self.espn_game_identifier}"
   end
 
 end
