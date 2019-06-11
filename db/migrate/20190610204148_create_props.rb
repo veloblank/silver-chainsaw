@@ -2,7 +2,7 @@ class CreateProps < ActiveRecord::Migration[5.0]
   def change
     create_table :props do |t|
       t.string :title
-      t.string :start_time
+      t.datetime :start_time
       t.string :sport
       t.string :home_team
       t.string :away_team

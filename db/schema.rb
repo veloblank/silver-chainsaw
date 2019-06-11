@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20190610204148) do
 
   create_table "props", force: :cascade do |t|
     t.string   "title"
-    t.string   "start_time"
+    t.datetime "start_time"
     t.string   "sport"
     t.string   "home_team"
     t.string   "away_team"
