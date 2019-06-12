@@ -4,6 +4,15 @@ class PropsController < ApplicationController
     @prop = Prop.new
   end
 
+  def index
+    if params[:board_id]
+      board = Board.find_by(params[:board_id])
+      @props = board.props.sort_by &:start_time
+    else
+      @props = Prop.all.sort_by &:sport
+    end
+  end
+
   private
   def prop_params
     params.require(:prop).permit(
