@@ -1,8 +1,12 @@
 #-------Can be used to scrape historical data/props to seed db
 #--------------------------------------------------------------
+DAYS_OF_HISTORICAL_DATA = 12
+# change the value of this constant to scrape more or less past days of historical ESPN props
+
+
 now = DateTime.now
-ten_days_ago = now - 10
-ary = Array.new(10).map.with_index(1) {|_,index| (ten_days_ago + index).strftime('%Y%m%d')}
+x_days_ago = now - DAYS_OF_HISTORICAL_DATA
+ary = Array.new(DAYS_OF_HISTORICAL_DATA).map.with_index(1) {|_,index| (x_days_ago + index).strftime('%Y%m%d')}
 #builds an array of strings formatted as: ["20190603", "20190604", "20190605"......]
 
 ary.each do |i|
@@ -34,10 +38,11 @@ ary.each do |i|
   end
 
 end
-#Faker Contestant Data
-# 10.times do
-#   email = Faker::Internet.free_email
-#   username = Faker::Internet.username
-#   password = Faker::Internet.password(8)
-#   Contestant.create(email: email, username: username, password_digest: password)
-# end
+
+#-----------------------------------Faker Contestant Data
+10.times do
+  email = Faker::Internet.free_email
+  username = Faker::Internet.username
+  password = Faker::Internet.password(8)
+  Contestant.create(email: email, username: username, password_digest: password)
+end
