@@ -12,12 +12,16 @@ props = @doc.css(".matchup-container")
 
 props.each do |p|
   date = p.css(".startTime").attr("data-locktime").value
+  board_name = DateTime.parse(date).strftime('%Y%m%d')
+  board = Board.find_or_create_by(name: board_name)
+  binding.pry
   prop = Prop.new(
     title:  p.css(".gamequestion").text,
     start_time: DateTime.parse(date),
     sport: p.css(".sport-description").text,
     away_team: p.css("td span strong")[0].text,
     home_team: p.css("td span strong")[1].text,
+    board_id: board.id
   )
   if p.css(".matchupStatus a").attr("href")
     prop.espn_game_identifier = p.css(".matchupStatus a").attr("href").value
