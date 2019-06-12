@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20190612010404) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "current_streak"
-    t.integer  "best_streak"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "current_streak",  default: 0
+    t.integer  "best_streak",     default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "pick_histories", force: :cascade do |t|

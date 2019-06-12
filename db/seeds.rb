@@ -29,3 +29,11 @@ props.each do |p|
     prop.save
   end
 end
+
+#Faker Contestant Data
+# 10.times do
+#   email = Faker::Internet.free_email
+#   username = Faker::Internet.username
+#   password = Faker::Internet.password(8)
+#   Contestant.create(email: email, username: username, password_digest: password)
+# end
