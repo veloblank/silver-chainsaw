@@ -2,6 +2,7 @@ class Prop < ApplicationRecord
   belongs_to :board
   has_many :contestant_picks
   has_many :contestants, through: :contestant_picks
+  validates :title, :start_time, :sport, :home_team, :away_team, :board_id, presence: true
 
 
   #this method helps check for duplicates by comparing the object's attributes as a string
