@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190610204148) do
+ActiveRecord::Schema.define(version: 20190612010404) do
+
+  create_table "contestant_picks", force: :cascade do |t|
+    t.integer  "contestant_id"
+    t.integer  "prop_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  create_table "contestants", force: :cascade do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "current_streak"
+    t.integer  "best_streak"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "pick_histories", force: :cascade do |t|
+    t.integer  "contestant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "props", force: :cascade do |t|
     t.string   "title"
@@ -24,6 +47,7 @@ ActiveRecord::Schema.define(version: 20190610204148) do
     t.boolean  "scored_by_admin?",     default: false
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
+    t.integer  "board_id"
   end
 
 end

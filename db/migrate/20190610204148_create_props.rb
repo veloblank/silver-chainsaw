@@ -10,7 +10,6 @@ class CreateProps < ActiveRecord::Migration[5.0]
       t.boolean :home_team_won?, default: nil
       t.boolean :away_team_won?, default: nil
       t.boolean :scored_by_admin?, default: false
-      t.integer :board_id
 
       t.timestamps
     end
