@@ -1,1 +1,10 @@
-<h1><%= DateTime.parse(@board.name).strftime('%a. %b %e')%></h1>
+
+<% if previous_board %>
+  <span><%= link_to DateTime.parse(previous_board.name).strftime('%a. %b %e'), board_path(previous_board)%></span>
+<% end %>
+
+<span><%= link_to DateTime.parse(@board.name).strftime('%a. %b %e'), board_path(@board)%></span>
+
+<% if next_board %>
+  <span><%= link_to DateTime.parse(next_board.name).strftime('%a. %b %e'), board_path(next_board) %></span>
+<% end %>
