@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20190612035918) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "scored?",    default: false
+    t.boolean  "scored",     default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
@@ -49,9 +49,9 @@ ActiveRecord::Schema.define(version: 20190612035918) do
     t.string   "home_team"
     t.string   "away_team"
     t.string   "espn_game_identifier"
-    t.boolean  "home_team_won?"
-    t.boolean  "away_team_won?"
-    t.boolean  "scored_by_admin?",     default: false
+    t.boolean  "home_team_won"
+    t.boolean  "away_team_won"
+    t.boolean  "scored_by_admin",      default: false
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.integer  "board_id"

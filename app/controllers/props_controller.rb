@@ -13,7 +13,7 @@ class PropsController < ApplicationController
       board = Board.find_by(params[:board_id])
       @props = board.props.sort_by &:start_time
     else
-      @props = Prop.all.sort_by &:sport
+      @props = Prop.needs_scoring
     end
   end
 
@@ -21,8 +21,8 @@ class PropsController < ApplicationController
   def prop_params
     params.require(:prop).permit(
       :title, :start_time, :sport, :home_team, :away_team,
-      :espn_game_identifier, :home_team_won?, :away_team_won?,
-      :scored_by_admin?
+      :espn_game_identifier, :home_team_won, :away_team_won,
+      :scored_by_admin
     )
   end
 end
