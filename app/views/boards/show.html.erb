@@ -8,3 +8,14 @@
 <% if next_board %>
   <span><%= link_to DateTime.parse(next_board.name).strftime('%a. %b %e'), board_path(next_board) %></span>
 <% end %>
+
+<% @board.props.each do |prop| %>
+
+  <div>
+    <h2><%= link_to prop.title, prop_path(prop) %></h2>
+    <h3><%= prop.sport %></h3>
+    <p><%= prop.away_team %></p>
+    <p><%= prop.home_team %></p>
+
+  </div>
+<% end %>

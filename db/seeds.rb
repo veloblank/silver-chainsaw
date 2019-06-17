@@ -1,6 +1,6 @@
 #-------Can be used to scrape historical data/props to seed db
 #--------------------------------------------------------------
-DAYS_OF_HISTORICAL_DATA = 12
+DAYS_OF_HISTORICAL_DATA = 20
 # change the value of this constant to scrape more or less past days of historical ESPN props
 
 
