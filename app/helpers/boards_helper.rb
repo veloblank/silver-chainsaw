@@ -11,7 +11,5 @@ module BoardsHelper
       DateTime.parse(next_board.name).strftime('%a. %b %e')
     end
   end
-
-
-
+    
 end

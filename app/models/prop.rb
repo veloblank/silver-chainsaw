@@ -11,4 +11,8 @@ class Prop < ApplicationRecord
     "Title: #{self.title} on ESPN Gamecast: #{self.espn_game_identifier}"
   end
 
+  def readable_time
+    start_time.strftime('%l:%M %p')
+  end
+
 end

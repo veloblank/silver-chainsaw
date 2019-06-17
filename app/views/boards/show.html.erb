@@ -1,7 +1,12 @@
 
 <span><%= link_to previous_board_link, board_path(previous_board) if previous_board %></span>
-<span id="today"><strong><%= link_to DateTime.parse(@board.name).strftime('%a. %b %e'), board_path(@board)%></strong></span>
-<span><%= link_to next_board_link, board_path(next_board) if next_board%></span>
+
+<span id="today">
+  <strong>
+    <%= link_to DateTime.parse(@board.name).strftime('%a. %b %e'), board_path(@board)%>
+  </strong>
+</span>
+<span><%= link_to next_board_link, board_path(next_board) if next_board %></span>
 
 <span>
   (<%= @board.props.count%> Total)
@@ -13,6 +18,7 @@
     <div>
       <h3><%= link_to prop.title, prop_path(prop) %></h3>
       <h4><%= prop.sport %></h4>
+      <h4><%= prop.readable_time %></h4>
       <p><%= prop.away_team %></p>
       <p><%= prop.home_team %></p>
     </div>
