@@ -13,7 +13,7 @@ class PropsController < ApplicationController
       board = Board.find_by(params[:board_id])
       @props = board.props.sort_by &:start_time
     else
-      @props = Prop.needs_scoring
+      @props = Prop.todays_props
     end
   end
 

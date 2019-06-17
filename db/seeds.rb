@@ -1,6 +1,6 @@
 #-------Can be used to scrape historical data/props to seed db
 #--------------------------------------------------------------
-DAYS_OF_HISTORICAL_DATA = 20
+DAYS_OF_HISTORICAL_DATA = 5
 # change the value of this constant to scrape more or less past days of historical ESPN props
 
 
@@ -20,6 +20,7 @@ ary.each do |i|
     board = Board.find_or_create_by(name: board_name)
     prop = Prop.new(
       title:  p.css(".gamequestion").text,
+      date: DateTime.parse(date).to_date,
       start_time: DateTime.parse(date),
       sport: p.css(".sport-description").text,
       away_team: p.css("td span strong")[0].text,
