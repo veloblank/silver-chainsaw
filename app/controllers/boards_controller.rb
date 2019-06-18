@@ -12,11 +12,15 @@ class BoardsController < ApplicationController
   def show
     #could not use @board = Board.find_by(params[:id]) for some reason
     #object would always have id=1
-    
+
     @board = Board.find_by(id: params[:id])
   end
 
   def edit
+
+  end
+
+  def leaderboard
 
   end
 
