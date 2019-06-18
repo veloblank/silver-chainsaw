@@ -10,10 +10,11 @@ class PropsController < ApplicationController
 
   def index
     if params[:board_id]
-      board = Board.find_by(params[:board_id])
-      @props = board.props.sort_by &:start_time
+      @board = Board.find_by(id: params[:board_id])
+      @props = @board.props.sort_by &:start_time
     else
       @props = Prop.todays_props
+      @board = Board.find_by(id: @props.first.board_id)
     end
   end
 

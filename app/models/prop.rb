@@ -14,8 +14,8 @@ class Prop < ApplicationRecord
     "Title: #{self.title} on ESPN Gamecast: #{self.espn_game_identifier}"
   end
 
-  def readable_time
-    start_time.strftime('%l:%M %p')
+  def readable_est_time
+    start_time.in_time_zone('Eastern Time (US & Canada)').strftime('%l:%M %p')
   end
 
   def self.filter_by(sport)

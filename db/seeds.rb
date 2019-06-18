@@ -20,8 +20,8 @@ ary.each do |i|
     board = Board.find_or_create_by(name: board_name)
     prop = Prop.new(
       title:  p.css(".gamequestion").text,
-      date: DateTime.parse(date).to_date,
-      start_time: DateTime.parse(date),
+      date: DateTime.parse(date).in_time_zone('Eastern Time (US & Canada)').to_date,
+      start_time: DateTime.parse(date).in_time_zone('Eastern Time (US & Canada)'),
       sport: p.css(".sport-description").text,
       away_team: p.css("td span strong")[0].text,
       home_team: p.css("td span strong")[1].text,
