@@ -9,6 +9,25 @@
   </head>
 
   <body>
+    <header>
+      <div class="container">
+        <%= image_tag "streak_on_rails.svg", class: "logo" %>
+          <nav>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Log In</a></li>
+              <li><a href="#">Sign Up</a></li>
+              <li><a href="#">Leaderboard</a></li>
+            </ul>
+          </nav>
+      </div>
+  </header>
+  <div class="container">
+
+    <div class="welcome-main" style="text-align: center;">
+      <%= "Welcome to Streak on Rails! Choose from the sports props below and start your streak! You will need to sign in to save your pick." unless logged_in? %>
+    </div>
     <%= yield %>
+  </div>
   </body>
 </html>
