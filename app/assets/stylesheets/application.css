@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ body {
+   background-color: #999
+ }
+
  .container {
    width: 80%;
    margin: 0 auto;
@@ -59,4 +63,31 @@ nav a {
 
 nav a:hover {
   color: #474646;
+}
+
+
+body a {
+  color: black;
+
+}
+
+.notice {
+  color: red;
+  font-weight: 600;
+}
+
+.app-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centered {
+    position: absolute;
+    width: 180px;
+    height: 300px;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top:-300px;
 }
