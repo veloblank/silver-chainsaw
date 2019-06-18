@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'login', to: "sessions#new"
   post 'login', to: "sessions#create"
-  post 'logout', to: "sessions#destroy"
+  delete 'logout', to: "sessions#destroy"
 
   resources :boards do
     resources :props, only: %i[index]
@@ -11,4 +11,6 @@ Rails.application.routes.draw do
 
   resources :props
   resources :contestants
+  get '/signup', to: "contestants#new", as: "signup"
+  get '/leaderboard', to: "boards#leaderboard"
 end
