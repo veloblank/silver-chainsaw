@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "props#index"
   resources :boards do
-    resources :props, only: %i[show index]
+    resources :props, only: %i[index]
   end
 
   resources :props
