@@ -71,8 +71,8 @@ body a {
 
 }
 
-.notice {
-  color: red;
+.notice, .danger {
+  background-color: rgba(205, 18, 49, 0.54);
   font-weight: 600;
 }
 
