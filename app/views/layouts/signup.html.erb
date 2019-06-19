@@ -11,13 +11,14 @@
   <body>
     <header>
       <div class="container">
-        <%= "Welcome, #{current_user}" if current_user%>
+        <%= "Welcome, #{current_user.username}" if current_user%>
           <nav>
             <ul>
               <li><%= link_to "Home", props_path %></li>
-              <li><%= link_to "Log In", login_path %></li>
-              <li><%= link_to "Sign Up", signup_path %></li>
+              <li><%= link_to "Log In", login_path if !logged_in?%></li>
+              <li><%= link_to "Sign Up", signup_path if !logged_in?%></li>
               <li><%= link_to "Leaderboard", leaderboard_path %></li>
+              <li><%= link_to "Log Out", logout_path, method: :delete if logged_in?%></li>
             </ul>
           </nav>
       </div>
