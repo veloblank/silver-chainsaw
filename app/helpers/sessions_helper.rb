@@ -12,4 +12,9 @@ module SessionsHelper
     #Contestant.find_by(id: session[:user_id]) refactor to not hit DB everytime
     @current_user ||= Contestant.find_by(id: session[:user_id])
   end
+
+  def log_out
+    session.delete :user_id
+    @current_user = nil
+  end
 end

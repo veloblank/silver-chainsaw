@@ -8,7 +8,7 @@ class ContestantsController < ApplicationController
   def create
     @contestant = Contestant.new(contestant_params)
     if @contestant.save
-      session[:user_id] = @contestant.id
+      login @contestant
       redirect_to root_path
     else
       render :new
