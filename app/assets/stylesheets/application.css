@@ -21,6 +21,7 @@
  .container {
    width: 80%;
    margin: 0 auto;
+   height: 120px;
  }
 
 header {
@@ -31,8 +32,10 @@ header {
   float: left;
 }
 
-.logo span {
+.logo div {
   font-weight: 600;
+  margin-left: 25px;
+  display: inline;
 }
 
 nav {

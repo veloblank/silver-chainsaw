@@ -13,7 +13,7 @@
       <div class="container">
         <div class="logo">
           <%= link_to image_tag("streak_on_rails.svg"), root_path %>
-          <span><%= "Welcome, #{current_user.username}" if current_user%></span>
+          <div><%= "Welcome, #{current_user.username}" if current_user%></div>
         </div>
           <nav>
             <ul>
