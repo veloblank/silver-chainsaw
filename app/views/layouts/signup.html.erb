@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Streak on Rails</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <%= "Welcome, #{current_user}" if current_user%>
+          <nav>
+            <ul>
+              <li><%= link_to "Home", props_path %></li>
+              <li><%= link_to "Log In", login_path %></li>
+              <li><%= link_to "Sign Up", signup_path %></li>
+              <li><%= link_to "Leaderboard", leaderboard_path %></li>
+            </ul>
+          </nav>
+      </div>
+  </header>
+  <div class="container">
+
+
+    <%= yield %>
+  </div>
+  </body>
+</html>
