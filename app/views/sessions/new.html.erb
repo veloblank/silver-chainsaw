@@ -1,10 +1,13 @@
-<% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-<% end %>
+<div class="centered">
+  <h1>Log In</h1>
+  <% if flash.now[:danger] %>
+      <div class="danger"><%= flash.now[:danger] %></div>
+  <% end %>
 
-<%= form_for(:session, url: login_path) do |f| %>
-  <%= f.text_field :username, placeholder: "username" %><br>
-  <%= f.password_field :password, placeholder: "password" %><br>
-  <%= f.submit "Submit" %>
-  <p>New user? <%= link_to "Sign up now!", signup_path %></p>
-<% end %>
+  <%= form_for(:session, url: login_path) do |f| %>
+    <%= f.text_field :username, placeholder: "username", autofocus: true %><br>
+    <%= f.password_field :password, placeholder: "password" %><br>
+    <%= f.submit "Submit" %>
+    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+  <% end %>
+</div>
