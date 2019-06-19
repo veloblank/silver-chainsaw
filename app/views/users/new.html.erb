@@ -4,7 +4,7 @@
   <hr>
 
   <div class="sign-up-form">
-    <%= form_for :contestant, url: '/contestants' do |f| %>
+    <%= form_for :user, url: '/users' do |f| %>
       <%= f.text_field :email, placeholder: "Email", autofocus: true %><br><br>
       <%= f.text_field :username, placeholder: "Username" %><br><br>
       <%= f.password_field :password, placeholder: "Password" %><br><br>

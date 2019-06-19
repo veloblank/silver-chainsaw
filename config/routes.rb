@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :props
-  resources :contestants
-  get '/signup', to: "contestants#new", as: "signup"
+  resources :users
+  get '/signup', to: "users#new", as: "signup"
   get '/leaderboard', to: "boards#leaderboard"
 end

@@ -19,27 +19,10 @@ ActiveRecord::Schema.define(version: 20190612035918) do
     t.datetime "updated_at",                 null: false
   end
 
-  create_table "contestant_picks", force: :cascade do |t|
-    t.integer  "contestant_id"
-    t.integer  "prop_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  create_table "contestants", force: :cascade do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
-    t.integer  "current_streak",  default: 0
-    t.integer  "best_streak",     default: 0
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-  end
-
   create_table "pick_histories", force: :cascade do |t|
-    t.integer  "contestant_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "props", force: :cascade do |t|
@@ -56,6 +39,23 @@ ActiveRecord::Schema.define(version: 20190612035918) do
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
     t.integer  "board_id"
+  end
+
+  create_table "user_picks", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "prop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "current_streak",  default: 0
+    t.integer  "best_streak",     default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end
