@@ -27,6 +27,12 @@
       </div>
   </header>
 
+  <% if !logged_in? %>
+    <div class="welcome-main" style="text-align: center;">
+      <%= "Welcome to Streak on Rails! Choose from the sports props below and start your streak! You will need to sign in to save your pick." unless logged_in? %>
+    </div>
+  <% end %>
+
     <%= yield %>
   </body>
 </html>
