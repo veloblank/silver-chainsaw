@@ -91,3 +91,12 @@ body a {
     margin-left: -50px;
     margin-top:-300px;
 }
+
+.welcome-main {
+  background-color: yellow;
+  padding: 5px;
+  font-weight: 600;
+  margin: 5px 0px;
+
+
+}
