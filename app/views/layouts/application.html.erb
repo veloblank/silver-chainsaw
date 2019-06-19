@@ -24,12 +24,7 @@
       </div>
       <%= "Welcome, #{current_user.username}" if current_user%>
   </header>
-  <div class="container">
 
-    <div class="welcome-main" style="text-align: center;">
-      <%= "Welcome to Streak on Rails! Choose from the sports props below and start your streak! You will need to sign in to save your pick." unless logged_in? %>
-    </div>
     <%= yield %>
-  </div>
   </body>
 </html>
