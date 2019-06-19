@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in contestant
       redirect_to root_path
     else
-      flash.now[:danger] = "The username and password you entered are incorrect."
+      flash.now[:danger] = "The username/password combination you entered are incorrect."
       render :new
     end
   end
