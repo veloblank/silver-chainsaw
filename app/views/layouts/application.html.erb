@@ -11,7 +11,10 @@
   <body>
     <header>
       <div class="container">
-        <%= image_tag "streak_on_rails.svg", class: "logo" %>
+        <div class="logo">
+          <img src="assets/streak_on_rails.svg" alt="streak-logo">
+          <span><%= "Welcome, #{current_user.username}" if current_user%></span>
+        </div>
           <nav>
             <ul>
               <li><%= link_to "Home", props_path %></li>
@@ -22,7 +25,6 @@
             </ul>
           </nav>
       </div>
-      <%= "Welcome, #{current_user.username}" if current_user%>
   </header>
 
     <%= yield %>
