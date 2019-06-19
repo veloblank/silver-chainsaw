@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlatironRailsProject</title>
+    <title>Streak on Rails</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,12 +12,13 @@
     <header>
       <div class="container">
         <%= image_tag "streak_on_rails.svg", class: "logo" %>
+        <%= "Welcome, #{current_user}" if current_user%>
           <nav>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Log In</a></li>
-              <li><a href="#">Sign Up</a></li>
-              <li><a href="#">Leaderboard</a></li>
+              <li><%= link_to "Home", props_path %></li>
+              <li><%= link_to "Log In", login_path %></li>
+              <li><%= link_to "Sign Up", signup_path %></li>
+              <li><%= link_to "Leaderboard", leaderboard_path %></li>
             </ul>
           </nav>
       </div>
