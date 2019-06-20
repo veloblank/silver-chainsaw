@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "props#index"
 
+  get "createOrUpdateEntry/:q", to: "props#add_prop_to_user_entry"
+
   get 'login', to: "sessions#new"
   post 'login', to: "sessions#create"
   delete 'logout', to: "sessions#destroy"
@@ -11,6 +13,6 @@ Rails.application.routes.draw do
 
   resources :props
   resources :users
-  get '/signup', to: "users#new", as: "signup"
-  get '/leaderboard', to: "boards#leaderboard"
+  get 'signup', to: "users#new", as: "signup"
+  get 'leaderboard', to: "boards#leaderboard"
 end

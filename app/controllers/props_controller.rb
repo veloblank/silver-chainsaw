@@ -8,6 +8,10 @@ class PropsController < ApplicationController
     @prop = Prop.find(params[:id])
   end
 
+  def add_prop_to_user_entry
+
+  end
+
   def index
     if params[:board_id]
       @board = Board.find_by(id: params[:board_id])
