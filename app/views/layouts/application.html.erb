@@ -18,21 +18,26 @@
           <nav>
             <ul>
               <li><%= link_to "Home", props_path %></li>
-              <li><%= link_to "Log In", login_path if !logged_in?%></li>
-              <li><%= link_to "Sign Up", signup_path if !logged_in?%></li>
+              <% if !logged_in? %>                
+                <li><%= link_to "Log In", login_path %></li>
+                <li><%= link_to "Sign Up", signup_path %></li>
+              <% end %>
               <li><%= link_to "Leaderboard", leaderboard_path %></li>
               <li><%= link_to "Log Out", logout_path, method: :delete if logged_in?%></li>
             </ul>
           </nav>
       </div>
   </header>
+  <div class="container">
 
   <% if !logged_in? %>
+
     <div class="welcome-main" style="text-align: center;">
       <%= "Welcome to Streak on Rails! Choose from the sports props below and start your streak! You will need to sign in to save your pick." unless logged_in? %>
     </div>
   <% end %>
 
     <%= yield %>
+  </div>
   </body>
 </html>
