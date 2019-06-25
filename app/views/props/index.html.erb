@@ -16,20 +16,22 @@
 
 <div class="prop-container">
   <% @board.props.each do |prop| %>
+  <div class="gameTable">
   <div class="prop-title"><strong><%= link_to prop.title, prop_path(prop) %></strong></div>
   <table>
     <tbody>
       <tr>
         <td rowspan='2' class="sport-start">
-          <div><%= prop.readable_est_time %></div>
-          <div><strong><%= prop.sport %></strong></div>
+          <div class="start"><%= prop.readable_est_time %></div>
+          <div class="prop-sport"><strong><%= prop.sport %></strong></div>
         </td>
-        <td class="opponent away"><%= prop.away_team %></td>
+        <td class="opponent-away"><%= prop.away_team %></td>
       </tr>
       <tr>
-        <td class="opponent home"><%= prop.home_team %></td>
+        <td class="opponent-home"><%= prop.home_team %></td>
       </tr>
     </tbody>
   </table>
+</div>
   <% end %>
 </div>

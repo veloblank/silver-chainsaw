@@ -21,7 +21,7 @@
  }
 
  body {
-   background-color: #999
+   background-color: #bbbbbb
  }
 
  .container {
@@ -110,4 +110,15 @@ body a {
   padding: 5px;
   font-weight: 600;
   margin: 5px 0px;
+}
+
+.gameTable {
+
+}
+
+
+
+
+.gameTableRed {
+  background: red;
 }
