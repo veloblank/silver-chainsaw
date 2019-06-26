@@ -122,3 +122,7 @@ body a {
 .gameTableRed {
   background: red;
 }
+
+.field_with_errors {
+  border: 2px solid red;
+}
