@@ -1,4 +1,5 @@
 class PropsController < ApplicationController
+  before_action :require_login, only: [:new]
 
   def new
     @prop = Prop.new
@@ -18,11 +19,16 @@ class PropsController < ApplicationController
       @props = @board.props.sort_by &:start_time
     else
       @props = Prop.todays_props
-      @board = Board.find_by(id: @props.first.board_id)
+      if @props.empty?
+        redirect_to new_board_path
+      else
+        @board = Board.find_by(id: @props.first.board_id)
+      end
     end
   end
 
   private
+
   def prop_params
     params.require(:prop).permit(
       :title, :start_time, :sport, :home_team, :away_team,
@@ -30,4 +36,8 @@ class PropsController < ApplicationController
       :scored_by_admin
     )
   end
+
+    def require_login
+      redirect_to login_path unless logged_in?
+    end
 end

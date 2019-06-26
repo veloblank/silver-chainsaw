@@ -3,7 +3,7 @@
 
   <span id="today">
     <strong>
-      <%= link_to DateTime.parse(@board.name).strftime('%a. %b %e'), board_path(@board)%>
+      <%= link_to DateTime.parse(@board.name).strftime('%a. %b %e'), board_path(@board) %>
     </strong>
   </span>
   <span><%= link_to next_board_link, board_path(next_board) if next_board %></span>
