@@ -54,8 +54,9 @@ ActiveRecord::Schema.define(version: 20190612035918) do
     t.string   "password_digest"
     t.integer  "current_streak",  default: 0
     t.integer  "best_streak",     default: 0
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "admin",           default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
 end

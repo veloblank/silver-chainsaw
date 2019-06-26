@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :password_digest
       t.integer :current_streak, default: 0
       t.integer :best_streak, default: 0
+      t.boolean :admin, default: false
 
       t.timestamps
     end
