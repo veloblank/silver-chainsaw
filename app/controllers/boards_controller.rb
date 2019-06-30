@@ -14,6 +14,7 @@ class BoardsController < ApplicationController
     #object would always have id=1
 
     @board = Board.find_by(id: params[:id])
+    @props = Prop.filter_and_sort_by_date(@board.name.to_date)
   end
 
   def edit
