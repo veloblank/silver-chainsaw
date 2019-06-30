@@ -9,6 +9,17 @@ class PropsController < ApplicationController
     @prop = Prop.find(params[:id])
   end
 
+  def create
+    @prop = Prop.new(prop_params)
+    @prop.board_id = Board.find_by(name: params[:prop][:board]).id
+    if @prop.valid?
+      @prop.save
+      redirect_to prop_path(@prop)
+    else
+      render :new
+    end
+  end
+
   def add_prop_to_user_entry
 
   end
@@ -16,13 +27,12 @@ class PropsController < ApplicationController
   def index
     if params[:board_id]
       @board = Board.find_by(id: params[:board_id])
-      @props = @board.props.sort_by &:start_time
+      @props = Prop.filter_and_sort_by_date(@board.name.to_date)
     else
-      @props = Prop.todays_props
+      @props = Prop.todays_sorted_props
+      @board = Board.find_by(id: @props.first.board_id)
       if @props.empty?
         redirect_to new_board_path
-      else
-        @board = Board.find_by(id: @props.first.board_id)
       end
     end
   end
@@ -31,8 +41,8 @@ class PropsController < ApplicationController
 
   def prop_params
     params.require(:prop).permit(
-      :title, :start_time, :sport, :home_team, :away_team,
-      :espn_game_identifier, :home_team_won, :away_team_won,
+      :title, :start_time, :sport, :date, :home_team, :away_team,
+      :espn_game_identifier, :board_id, :home_team_won, :away_team_won,
       :scored_by_admin
     )
   end
