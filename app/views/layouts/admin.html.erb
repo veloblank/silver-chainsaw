@@ -19,6 +19,7 @@
             <ul>
               <li><%= link_to "Home", props_path %></li>
               <li><%= link_to "Create Props", new_prop_path %></li>
+              <li><%= link_to "Score Props", score_props_path %></li>
               <% if !logged_in? %>
                 <li><%= link_to "Log In", login_path %></li>
                 <li><%= link_to "Sign Up", signup_path %></li>

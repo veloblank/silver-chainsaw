@@ -1,0 +1,18 @@
+<h1><%= "#{pluralize(@props.count, "prop")} need scoring" %></h1>
+
+<table class="scoring-table">
+  <% @props.each do |prop|%>
+  <tr>
+    <th>Date</th>
+    <th>Prop Title</th>
+    <th>Home Team</th>
+    <th>Away Team</th>
+  </tr>
+  <tr>
+    <td><%= prop.date %></td>
+    <td><%= prop.title %></td>
+    <td class="side"><%= prop.home_team %></td>
+    <td class="side"><%= prop.away_team %></td>
+  </tr>
+  <% end %>
+</table>
