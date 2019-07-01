@@ -16,4 +16,8 @@ module SessionsHelper
     session.delete :user_id
     @current_user = nil
   end
+
+  def user_has_selected_pick?
+    params[:q] ? true : false
+  end
 end

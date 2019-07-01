@@ -2,6 +2,7 @@ class PropsController < ApplicationController
   before_action :require_login, only: [:new]
   before_action :require_admin, only: [:new, :create]
   layout :choose_layout
+  include PropsHelper
 
   def new
     @prop = Prop.new
@@ -23,8 +24,9 @@ class PropsController < ApplicationController
   end
 
   def add_prop_to_user_entry
-    redirect_to login_path(:side => params[:side], :date => params[:date]) if !logged_in?
-
+    redirect_to login_path(:side => pick_params[:side], :date => pick_params[:date]) if !logged_in?
+    make_selection(pick_params)
+    redirect_to root_path
   end
 
   def index
@@ -48,6 +50,10 @@ class PropsController < ApplicationController
       :espn_game_identifier, :board_id, :home_team_won, :away_team_won,
       :scored_by_admin
     )
+  end
+
+  def pick_params
+    params.permit(:q, :side)
   end
 
   def require_login
