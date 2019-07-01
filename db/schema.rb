@@ -44,12 +44,12 @@ ActiveRecord::Schema.define(version: 20190612035918) do
   create_table "user_picks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "prop_id"
-    t.boolean  "locked"
-    t.boolean  "scored"
+    t.boolean  "locked",     default: false
+    t.boolean  "scored",     default: false
     t.boolean  "side_won"
     t.string   "side"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "users", force: :cascade do |t|
