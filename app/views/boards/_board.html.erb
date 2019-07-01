@@ -26,12 +26,12 @@
           <div class="prop-sport"><strong><%= prop.sport %></strong></div>
         </td>
         <td class="opponent-away">
-          <%= link_to prop.away_team, add_prop_to_user_entry_path(prop, :side => "away")  %>
+          <%= link_to prop.away_team, add_prop_to_user_entry_path(prop, :side => "away"), method: "POST" %>
         </td>
       </tr>
       <tr>
         <td class="opponent-home">
-          <%= link_to prop.home_team, add_prop_to_user_entry_path(prop, :side => "home")  %>
+          <%= link_to prop.home_team, add_prop_to_user_entry_path(prop, :side => "home"), method: "POST" %>
         </td>
       </tr>
     </tbody>
