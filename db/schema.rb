@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190701061157) do
+ActiveRecord::Schema.define(version: 20190612035918) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
@@ -44,9 +44,12 @@ ActiveRecord::Schema.define(version: 20190701061157) do
   create_table "user_picks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "prop_id"
+    t.boolean  "locked"
+    t.boolean  "scored"
+    t.boolean  "side_won"
+    t.string   "side"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "side"
   end
 
   create_table "users", force: :cascade do |t|
