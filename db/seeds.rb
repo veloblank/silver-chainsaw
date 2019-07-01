@@ -47,3 +47,7 @@ end
   password = Faker::Internet.password(8)
   User.create(email: email, username: username, password_digest: password)
 end
+
+# make an Admin on db:seed
+
+User.create(email: "email@gmail.com", username: "admin", password: "1234567890", admin: true)
