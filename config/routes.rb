@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "props#index"
 
-  get "createOrUpdateEntry/:q", to: "props#add_prop_to_user_entry"
+  get "createOrUpdateEntry/:q", to: "props#add_prop_to_user_entry", as: "add_prop_to_user_entry"
 
   get 'login', to: "sessions#new"
   post 'login', to: "sessions#create"
