@@ -1,5 +1,7 @@
 class UserPick < ApplicationRecord
-  belongs_to :users
-  belongs_to :props
-  accepts_nested_attributes_for :prop
+  belongs_to :users, optional: true
+  belongs_to :props, optional: true
+
+
+  
 end
