@@ -23,6 +23,7 @@ class PropsController < ApplicationController
   end
 
   def add_prop_to_user_entry
+    redirect_to login_path(:side => params[:side], :date => params[:date]) if !logged_in?
 
   end
 

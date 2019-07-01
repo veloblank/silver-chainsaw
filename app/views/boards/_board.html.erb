@@ -25,10 +25,14 @@
           <div class="start"><%= prop.readable_est_time %></div>
           <div class="prop-sport"><strong><%= prop.sport %></strong></div>
         </td>
-        <td class="opponent-away"><%= prop.away_team %></td>
+        <td class="opponent-away">
+          <%= link_to prop.away_team, add_prop_to_user_entry_path(prop, :side => "away")  %>
+        </td>
       </tr>
       <tr>
-        <td class="opponent-home"><%= prop.home_team %></td>
+        <td class="opponent-home">
+          <%= link_to prop.home_team, add_prop_to_user_entry_path(prop, :side => "home")  %>
+        </td>
       </tr>
     </tbody>
   </table>
