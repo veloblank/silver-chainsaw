@@ -1,5 +1,7 @@
 class PropsController < ApplicationController
   before_action :require_login, only: [:new]
+  before_action :require_admin, only: [:new, :create]
+  layout :choose_layout
 
   def new
     @prop = Prop.new
@@ -47,7 +49,24 @@ class PropsController < ApplicationController
     )
   end
 
-    def require_login
-      redirect_to login_path unless logged_in?
+  def require_login
+    redirect_to login_path unless logged_in?
+  end
+
+  def require_admin
+    redirect_to root_path unless current_user.admin
+  end
+
+  def is_admin?
+    current_user.admin
+  end
+
+  def choose_layout
+    if current_user && is_admin?  #takes care of error when no user is logged in
+      "admin"
+    else
+      "application"
     end
+  end
+
 end
