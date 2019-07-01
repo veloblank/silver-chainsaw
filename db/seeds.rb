@@ -45,7 +45,9 @@ end
   email = Faker::Internet.free_email
   username = Faker::Internet.username
   password = Faker::Internet.password(8)
-  User.create(email: email, username: username, password_digest: password)
+  best_streak = Faker::Number.within(1..10)
+  current_streak = Faker::Number.within(1..10)
+  user = User.create(email: email, username: username, password_digest: password, current_streak: current_streak, best_streak: best_streak)
 end
 
 # make an Admin on db:seed

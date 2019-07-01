@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :props, through: :user_picks
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
-  validates :password, length: {minimum: 8}
+  validates :password, length: { minimum: 8, allow_nil: true }, confirmation: true
 end

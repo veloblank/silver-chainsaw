@@ -24,9 +24,12 @@ class PropsController < ApplicationController
   end
 
   def add_prop_to_user_entry
-    redirect_to login_path(:side => pick_params[:side], :date => pick_params[:date]) if !logged_in?
-    make_selection(pick_params)
-    redirect_to root_path
+    if logged_in?
+      make_selection(pick_params)
+      redirect_to root_path
+    else
+      redirect_to login_path
+    end
   end
 
   def index
