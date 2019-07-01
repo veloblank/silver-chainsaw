@@ -1,0 +1,16 @@
+<div class="leaderboard-wrapper">
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Current</th>
+      <th>Longest</th>
+    </tr>
+    <% @leaders.each do |leader| %>
+    <tr>
+      <td><%= leader.username %></td>
+      <td><%= leader.current_streak %></td>
+      <td><%= leader.best_streak %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
