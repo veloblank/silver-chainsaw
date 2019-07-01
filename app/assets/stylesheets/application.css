@@ -128,10 +128,18 @@ body a {
   border: 2px solid red;
 }
 
-.scoring-table {
-  text-align: left;
+.scoring-table th {
+  text-align: center;
 }
 
 .scoring-table td.side:hover {
   background-color: red;
+}
+
+.scoring-table button {
+  text-align: center;
+  width: 85%;
+  height: 75px;
+  display: block;
+  margin: 0 auto;
 }

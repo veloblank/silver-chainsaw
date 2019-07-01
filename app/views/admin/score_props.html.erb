@@ -11,8 +11,24 @@
   <tr>
     <td><%= prop.date %></td>
     <td><%= prop.title %></td>
-    <td class="side"><%= prop.home_team %></td>
-    <td class="side"><%= prop.away_team %></td>
+    <div id="home-side"">
+      <td class="side">
+        <%= form_for :prop do |f| %>
+        <%= f.hidden_field :home_team_won, :value => true %>
+        <%= f.hidden_field :prop, :value => prop.id %>
+        <%= f.button prop.home_team %>
+        <% end %>
+      </td>
+    </div>
+    <div id="away-side">
+      <td class="side">
+        <%= form_for :prop do |f| %>
+        <%= f.hidden_field :away_team_won, :value => true %>
+        <%= f.hidden_field :prop, :value => prop.id %>
+        <%= f.button prop.away_team %>
+        <% end %>
+      </td>
+    </div>
   </tr>
   <% end %>
 </table>

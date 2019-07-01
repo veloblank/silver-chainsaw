@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'admin/score_props', to: "admin#score_props", as: "score_props"
+  post 'admin/score_props', to: "admin#change_score"
 
   root "props#index"
 
