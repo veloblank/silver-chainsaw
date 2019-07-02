@@ -1,6 +1,10 @@
 class Leaderboard < ApplicationRecord
 
-  def self.top_ten_monthly
-    User.order(best_streak: :desc ).limit(10)
+  def self.top_25_monthly
+    User.order(best_streak: :desc ).limit(25)
+  end
+
+  def self.top_100_monthly
+    User.order(best_streak: :desc ).limit(100)
   end
 end
