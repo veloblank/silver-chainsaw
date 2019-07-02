@@ -1,14 +1,23 @@
 module PropsHelper
 
   def make_selection(params)
-    prop = Prop.find_by(params[:q])
+    prop = Prop.find_by(id: params[:q])
     side = params[:side]
     user = current_user
     pick = UserPick.create(prop_id: prop.id, side: side, user_id: current_user.id)
   end
 
   def prop_locked(prop)
-    prop.locked
+    if prop.locked
+      "game-locked"
+    end
+  end
+
+  def prop_selected(prop)
+    user_pick = current_user.user_picks.last.prop_id
+    if user_pick == prop.id
+      "prop-pending"
+    end
   end
 
   def opponent_away(prop)
