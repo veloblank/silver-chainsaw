@@ -15,7 +15,6 @@ class UserPick < ApplicationRecord
 
   def self.score_home_picks(prop)
     picks = UserPick.where("prop_id = ? AND side = ?", prop.id, "home")
-    binding.pry
     picks.each do |pick|
       if prop.home_team_won
         pick.update(side_won: true, scored: true)
