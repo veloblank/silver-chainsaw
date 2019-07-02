@@ -3,8 +3,7 @@ module PropsHelper
   def make_selection(params)
     prop = Prop.find_by(id: params[:q])
     side = params[:side]
-    user = current_user
-    pick = UserPick.create(prop_id: prop.id, side: side, user_id: current_user.id)
+    pick = current_user.user_picks.create(prop_id: prop.id, side: side)
   end
 
   def prop_locked(prop)
