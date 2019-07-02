@@ -22,7 +22,7 @@ class BoardsController < ApplicationController
   end
 
   def leaderboard
-    @leaders = Leaderboard.top_ten_monthly
+    @leaders = Leaderboard.top_25_monthly
   end
 
   def update
