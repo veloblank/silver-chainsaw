@@ -8,7 +8,7 @@ module PropsHelper
   end
 
   def prop_locked(prop)
-    if prop.locked
+    if prop.start_time <= DateTime.current
       "prop-locked"
     end
   end
