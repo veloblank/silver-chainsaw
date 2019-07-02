@@ -9,13 +9,12 @@ module PropsHelper
 
   def prop_locked(prop)
     if prop.locked
-      "game-locked"
+      "prop-locked"
     end
   end
 
   def prop_selected(prop)
-    user_pick = current_user.user_picks.last.prop_id
-    if user_pick == prop.id
+    if user_selection.prop_id == prop.id
       "prop-pending"
     end
   end
@@ -34,5 +33,21 @@ module PropsHelper
     else
       link_to prop.home_team, add_prop_to_user_entry_path(prop, :side => "home"), method: "POST"
     end
+  end
+
+  def selected_away_side(prop)
+    if user_selection.prop_id == prop.id
+      "selected" unless user_selection.side == "home"
+    end
+  end
+
+  def selected_home_side(prop)
+    if user_selection.prop_id == prop.id
+      "selected" unless user_selection.side == "away"
+    end
+  end
+
+  def user_selection
+    current_user.user_picks.last
   end
 end

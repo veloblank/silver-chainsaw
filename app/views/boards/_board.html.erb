@@ -16,7 +16,7 @@
 
 <div class="prop-container">
   <% @props.each do |prop| %>
-  <div class="gameTable <%= prop_locked(prop) %>" " <%= prop_selected(prop) %>">
+  <div class="gameTable <%= prop_locked(prop) %><%= prop_selected(prop) %>">
     <div class="prop-title"><strong><%= link_to prop.title, prop_path(prop) %></strong></div>
       <table class="game-prop">
           <tr>
@@ -24,12 +24,12 @@
               <div class="start"><%= prop.readable_est_time %></div>
               <div class="prop-sport"><strong><%= prop.sport %></strong></div>
             </td>
-            <td class="opponent-away">
+            <td class="opponent-away <%= selected_away_side(prop) %>">
               <%= opponent_away(prop) %>
             </td>
           </tr>
           <tr>
-            <td class="opponent-home">
+            <td class="opponent-home <%= selected_home_side(prop) %>">
               <%= opponent_home(prop) %>
             </td>
           </tr>

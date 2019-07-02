@@ -152,7 +152,7 @@ body a {
   margin: 0 auto;
 }
 
-.game-locked {
+.prop-locked {
   background-color: #bbbbbb
 }
 
@@ -163,4 +163,12 @@ body a {
 .status-container {
   background-color: black;
   height: 15px;
+}
+
+.prop-pending {
+  background-color: yellow;
+}
+
+.selected {
+  background-color: orange;
 }
