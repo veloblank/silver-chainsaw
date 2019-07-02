@@ -28,6 +28,7 @@ class PropsController < ApplicationController
       make_selection(pick_params)
       redirect_to root_path
     else
+      # TODO: Allow user to make selection if not logged in, but not lose selection after logging in. (queries)
       redirect_to login_path
     end
   end
