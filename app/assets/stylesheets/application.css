@@ -122,16 +122,6 @@ body a {
   background-color: rgb(240, 190, 12);
 }
 
-
-
-.gameTableRed {
-  background: red;
-}
-
-.field_with_errors {
-  border: 2px solid red;
-}
-
 .scoring-table th {
   text-align: center;
 }
@@ -171,4 +161,12 @@ body a {
 
 .selected {
   background-color: orange;
+}
+
+.prop-win {
+  background-color: green;
+}
+
+.prop-loss {
+  background-color: red;
 }
