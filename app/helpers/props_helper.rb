@@ -7,8 +7,15 @@ module PropsHelper
   end
 
   def prop_locked(prop)
+    prop.lock_prop
     if prop.locked
       "prop-locked"
+    end
+  end
+
+  def prop_scored(prop)
+    if prop.scored_by_admin
+      "prop-scored"
     end
   end
 
@@ -19,7 +26,7 @@ module PropsHelper
   end
 
   def opponent_away(prop)
-    if prop_locked(prop)
+    if prop.locked
       prop.away_team
     else
       link_to prop.away_team, add_prop_to_user_entry_path(prop, :side => "away"), method: "POST"
@@ -27,7 +34,7 @@ module PropsHelper
   end
 
   def opponent_home(prop)
-    if prop_locked(prop)
+    if prop.locked
       prop.home_team
     else
       link_to prop.home_team, add_prop_to_user_entry_path(prop, :side => "home"), method: "POST"
