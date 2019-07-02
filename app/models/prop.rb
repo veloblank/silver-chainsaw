@@ -30,4 +30,10 @@ class Prop < ApplicationRecord
     Prop.all.where("date = '#{date}'").order(:start_time)
   end
 
+  def prop_locked
+    if start_time <= DateTime.current
+      self.update(locked: true)
+    end
+  end
+
 end

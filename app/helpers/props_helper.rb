@@ -7,14 +7,14 @@ module PropsHelper
   end
 
   def prop_locked(prop)
-    if prop.start_time <= DateTime.current
+    if prop.locked
       "prop-locked"
     end
   end
 
   def prop_selected(prop)
     if logged_in? && user_selection && user_selection.prop_id == prop.id
-        "prop-pending"
+      "prop-pending"
     end
   end
 
