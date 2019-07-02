@@ -41,13 +41,15 @@ ary.each do |i|
 end
 
 #-----------------------------------Faker Contestant Data
-10.times do
-  email = Faker::Internet.free_email
-  username = Faker::Internet.username
-  password = Faker::Internet.password(8)
-  best_streak = Faker::Number.within(1..10)
-  current_streak = Faker::Number.within(1..10)
-  user = User.create(email: email, username: username, password_digest: password, current_streak: current_streak, best_streak: best_streak)
+unless User.all.count > 50
+  100.times do
+    email = Faker::Internet.free_email
+    username = Faker::Internet.username
+    password = Faker::Internet.password(8)
+    best_streak = Faker::Number.within(1..15)
+    current_streak = Faker::Number.within(0..10)
+    user = User.create(email: email, username: username, password_digest: password, current_streak: current_streak, best_streak: best_streak)
+  end
 end
 
 # make an Admin on db:seed
