@@ -35,13 +35,13 @@ module PropsHelper
   end
 
   def selected_away_side(prop)
-    if logged_in? && user_selection && user_selection.prop_id == prop.id
+    if user_selection && user_selection.prop_id == prop.id
       "selected" unless user_selection.side == "home"
     end
   end
 
   def selected_home_side(prop)
-    if logged_in? && user_selection && user_selection.prop_id == prop.id
+    if user_selection && user_selection.prop_id == prop.id
       "selected" unless user_selection.side == "away"
     end
   end
