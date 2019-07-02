@@ -35,10 +35,4 @@ class Prop < ApplicationRecord
       self.update(locked: true)
     end
   end
-
-  def won_prop
-    
-
-  end
-
 end

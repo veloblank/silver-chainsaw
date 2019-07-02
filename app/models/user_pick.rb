@@ -23,7 +23,4 @@ class UserPick < ApplicationRecord
       end
     end
   end
-
-
-
 end
