@@ -31,9 +31,14 @@ class Prop < ApplicationRecord
   end
 
   def lock_prop
-    if start_time <= DateTime.current
+    if start_time <= DateTime.current || scored_by_admin
       self.update(locked: true)
     end
+  end
+
+  def won_prop
+    
+
   end
 
 end
