@@ -13,7 +13,7 @@ class PropsController < ApplicationController
   end
 
   def create
-    board = Board.find_by(name: params[:prop][:board])
+    board = Board.find_by(name: params[:prop][:board]) || Board.new
     @prop = board.props.new(prop_params) #use belongs_to/has_many association
     if @prop.valid?
       @prop.save
@@ -58,26 +58,6 @@ class PropsController < ApplicationController
 
   def pick_params
     params.permit(:q, :side)
-  end
-
-  def require_login
-    redirect_to login_path unless logged_in?
-  end
-
-  def require_admin
-    redirect_to root_path unless current_user.admin
-  end
-
-  def is_admin?
-    current_user.admin
-  end
-
-  def choose_layout
-    if current_user && is_admin?  #takes care of error when no user is logged in
-      "admin"
-    else
-      "application"
-    end
   end
 
 end
