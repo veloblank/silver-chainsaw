@@ -109,7 +109,7 @@ body a {
 }
 
 .authform h1 {
-  margin-bottom: 15px;
+  margin: 15px 5px;
 }
 
 .authform input {
@@ -127,6 +127,10 @@ body a {
   margin-bottom: 5px;
   font-weight: bold;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.danger {
+  margin-bottom: 10px;
 }
 
 .create-col {
@@ -224,4 +228,10 @@ body a {
 
 .prop-loss {
   background-color: red;
+}
+
+.signup {
+  padding-top: 20px;
+  
+
 }
