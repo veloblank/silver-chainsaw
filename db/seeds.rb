@@ -46,9 +46,7 @@ unless User.all.count > 30
     email = Faker::Internet.free_email
     username = Faker::Internet.username
     password = Faker::Internet.password(8)
-    best_streak = Faker::Number.within(1..15)
-    current_streak = 0
-    user = User.create(email: email, username: username, password_digest: password, current_streak: current_streak, best_streak: best_streak)
+    user = User.create(email: email, username: username, password_digest: password)
   end
 
   # make an Admin on db:seed
@@ -57,7 +55,7 @@ unless User.all.count > 30
 
   User.all.each do |user|
     props = Prop.all.count
-    arr = Array(1..props).sample(props / 30)
+    arr = Array(1..props).sample(props / 3)
     side = ["home", "away"].sample(1)
     arr.count.times do
       user.user_picks.create(prop_id: arr.sample, side: side.sample(1).first)

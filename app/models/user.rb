@@ -16,5 +16,9 @@ class User < ApplicationRecord
     self.update(:current_streak => streak)
   end
 
-
+  def check_best_streak
+    if current_streak > best_streak
+      self.update(:best_streak => current_streak)
+    end
+  end
 end
