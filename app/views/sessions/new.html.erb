@@ -1,13 +1,15 @@
-<div class="signin centered">
-  <h1>Log In</h1>
+<div class="authform">
+  <h1>Sign In</h1>
   <% if flash.now[:danger] %>
       <div class="danger"><%= flash.now[:danger] %></div>
   <% end %>
 
   <%= form_for(:session, url: login_path) do |f| %>
-    <%= f.text_field :username, placeholder: "username", autofocus: true %><br>
-    <%= f.password_field :password, placeholder: "password" %><br>
-    <%= f.submit "Submit" %>
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <%= f.label :username %>
+    <%= f.text_field :username, autofocus: true %><br>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+    <%= f.submit "Sign in" %><br>
+    <h4>New user? <%= link_to "Sign up now!", signup_path %></h4>
   <% end %>
 </div>
