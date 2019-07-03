@@ -25,6 +25,19 @@ module PropsHelper
     end
   end
 
+  def user_won(prop)
+    if logged_in? && current_user.user_picks.any?{|pick| pick.prop_id == prop.id && pick.side_won == true}
+      'prop-win'
+    end
+  end
+
+  def user_lost(prop)
+    if logged_in? && current_user.user_picks.any?{|pick| pick.prop_id == prop.id && pick.side_won == false}
+      'prop-loss'
+    end
+
+  end
+
   def opponent_away(prop)
     if prop.locked
       prop.away_team
