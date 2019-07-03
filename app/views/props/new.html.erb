@@ -1,30 +1,47 @@
-<%= form_for @prop do |f| %>
-  <%= f.label :title %><br>
-  <%= f.text_field :title, placeholder: :matchup_title %><br>
-  <%= f.label :date, "Match date:" %><br>
-  <%= f.date_select(:date, :order => [:month, :day, :year]) %><br>
-  <%= f.label :start_time %><br>
-  <%= f.time_select :start_time %><br>
-  <%= f.label :sport %><br>
-  <%= f.text_field :sport, list: "sports_autocomplete", placeholder: :sport %>
-  <datalist id="sports_autocomplete">
-    <% Prop.uniq_sports.each do |sport| %>
-      <option value="<%= sport %>">
+<div class="create-col">
+  <div class="error-explanation">
+    <% if @prop.errors.any? %>
+      <ul>
+      <% @prop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
     <% end %>
-  </datalist>
+      </ul>
+  </div>
+
   <br>
-  <%= f.label "Team Names:"%><br>
-  <%= f.text_field :home_team, placeholder: "Home Team" %><br>
-  <%= f.text_field :away_team, placeholder: "Away Team" %><br>
-  <%= f.label :espn_game_identifier, "ESPN Gamecast ID:" %><br>
-  <%= f.text_field :espn_game_identifier, placeholder: "Optional" %><br>
-  <%= f.label :board, "Add to Board:" %><br>
-  <%= f.text_field :board, list: "boards_autocomplete", placeholder: :board %>
-  <datalist id="boards_autocomplete">
-    <% Board.all.each do |board| %>
-      <option value="<%= board.name %>">
-    <% end %>
-  </datalist>
   <br>
-  <%= f.submit %>
-<% end %>
+
+  <%= form_for @prop do |f| %>
+    <%= f.label :title %><br>
+    <%= f.text_field :title, placeholder: :matchup_title %><br>
+    <%= f.label :date, "Match date:" %><br>
+    <%= f.date_select(:date, :order => [:month, :day, :year]) %><br>
+    <%= f.label :start_time %><br>
+    <%= f.time_select :start_time %><br>
+    <%= f.label :sport %><br>
+    <%= f.text_field :sport, list: "sports_autocomplete", placeholder: :sport %>
+      <datalist id="sports_autocomplete">
+        <% Prop.uniq_sports.each do |sport| %>
+          <option value="<%= sport %>">
+        <% end %>
+      </datalist>
+      <br>
+    <%= f.label "Team Names:"%><br>
+    <%= f.text_field :home_team, placeholder: "Home Team" %><br>
+    <%= f.text_field :away_team, placeholder: "Away Team" %><br>
+    <%= f.label :espn_game_identifier, "ESPN Gamecast ID:" %><br>
+    <%= f.text_field :espn_game_identifier, placeholder: "Optional" %><br>
+    <%= f.label :board, "Add to Board:" %><br>
+    <%= f.text_field :board, value: nil, list: "boards_autocomplete" %>
+      <datalist id="boards_autocomplete">
+        <% Board.all.each do |board| %>
+          <% if board.name >= DateTime.now.strftime("%Y%m%d") %>
+            <option value="<%= board.name %>">
+          <% end %>
+        <% end %>
+      </datalist>
+      <br>
+    <%= f.submit %>
+  <% end %>
+</div>

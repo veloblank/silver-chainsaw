@@ -38,6 +38,18 @@ header {
   float: left;
 }
 
+.field_with_errors {
+  border: 2px solid red;
+  background-color: rgba(224, 24, 24, 0.5);
+}
+
+.error-explanation li{
+  padding: 15px 5px 0px 5px;
+  list-style: none;
+  font-weight: 600;
+  font-size: 1.15em;
+}
+
 .logo div {
   font-weight: 600;
   margin-left: 25px;
@@ -71,7 +83,7 @@ nav a {
   color: #000000;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 nav a:hover {
@@ -82,6 +94,16 @@ nav a:hover {
 body a {
   color: black;
 
+}
+
+.create-col {
+  width: 50%;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.create-col input {
+  width: 100%;
 }
 
 .notice, .danger {
