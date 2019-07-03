@@ -9,19 +9,19 @@ module PropsHelper
   def prop_locked(prop)
     prop.lock_prop
     if prop.locked
-      "prop-locked"
+      'prop-locked'
     end
   end
 
   def prop_scored(prop)
     if prop.scored_by_admin
-      "prop-scored"
+      'prop-scored'
     end
   end
 
   def prop_selected(prop)
     if logged_in? && user_selection && user_selection.prop_id == prop.id
-      "prop-pending"
+      'prop-pending'
     end
   end
 
@@ -55,5 +55,14 @@ module PropsHelper
 
   def user_selection
     current_user.user_picks.last if logged_in?
+  end
+
+  def lock_and_unlock
+    prop = Prop.find(user_selection.prop_id)
+    if prop.locked && !prop.scored_by_admin
+      user_selection.update(locked: true)
+    else
+      user_selection.update(locked: true)
+    end
   end
 end

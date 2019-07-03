@@ -16,7 +16,7 @@
 
 <div class="prop-container">
   <% @props.each do |prop| %>
-  <div class="gameTable <%= prop_locked(prop) %><%= prop_selected(prop) %> <%= prop_scored(prop) %>">
+  <div class="gameTable <%= prop_selected(prop) %> <%= prop_locked(prop) %> <%= prop_scored(prop) %>">
     <div class="prop-title"><strong><%= link_to prop.title, prop_path(prop) %></strong></div>
       <table class="game-prop">
           <tr>
