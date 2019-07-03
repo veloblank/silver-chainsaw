@@ -1,6 +1,6 @@
 #-------Can be used to scrape historical data/props to seed db
 #--------------------------------------------------------------
-DAYS_OF_HISTORICAL_DATA = 2
+DAYS_OF_HISTORICAL_DATA = 15
 # change the value of this constant to scrape more or less past days of historical ESPN props
 
 
@@ -41,8 +41,8 @@ ary.each do |i|
 end
 
 #-----------------------------------Faker Contestant Data
-unless User.all.count > 50
-  50.times do
+unless User.all.count > 30
+  30.times do
     email = Faker::Internet.free_email
     username = Faker::Internet.username
     password = Faker::Internet.password(8)
@@ -57,9 +57,9 @@ unless User.all.count > 50
 
   User.all.each do |user|
     props = Prop.all.count
-    arr = Array(1..props).sample(15)
+    arr = Array(1..props).sample(props / 30)
     side = ["home", "away"].sample(1)
-    8.times do
+    arr.count.times do
       user.user_picks.create(prop_id: arr.sample, side: side.sample(1).first)
     end
   end
