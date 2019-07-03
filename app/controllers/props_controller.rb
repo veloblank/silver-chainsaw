@@ -13,8 +13,8 @@ class PropsController < ApplicationController
   end
 
   def create
-    @prop = Prop.new(prop_params)
-    @prop.board_id = Board.find_by(name: params[:prop][:board]).id
+    board = Board.find_by(name: params[:prop][:board])
+    @prop = board.props.new(prop_params) #use belongs_to/has_many association
     if @prop.valid?
       @prop.save
       redirect_to prop_path(@prop)
