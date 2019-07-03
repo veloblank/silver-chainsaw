@@ -26,8 +26,8 @@
 
  .container {
    width: 80%;
+   height: 100%;
    margin: 0 auto;
-   height: 120px;
  }
 
 header {
@@ -114,7 +114,7 @@ body a {
 
 .gameTable {
   background-color: white;
-
+  padding: 5px 10px;
 }
 
 .gameTable .opponent-home:hover,
