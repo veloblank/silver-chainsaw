@@ -1,14 +1,16 @@
 class UserPick < ApplicationRecord
-  belongs_to :users, optional: true
-  belongs_to :props, optional: true
+  belongs_to :user
+  belongs_to :prop
 
   def self.score_away_picks(prop)
     picks = UserPick.where("prop_id = ? AND side = ?", prop.id, "away")
     picks.each do |pick|
       if prop.away_team_won
         pick.update(side_won: true, scored: true)
+        pick.user.increment_streak
       else
         pick.update(side_won: false, scored: true)
+        pick.user.reset_streak
       end
     end
   end
@@ -18,8 +20,10 @@ class UserPick < ApplicationRecord
     picks.each do |pick|
       if prop.home_team_won
         pick.update(side_won: true, scored: true)
+        pick.user.increment_streak
       else
         pick.update(side_won: false, scored: true)
+        pick.user.reset_streak
       end
     end
   end

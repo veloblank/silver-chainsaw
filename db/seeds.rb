@@ -42,16 +42,25 @@ end
 
 #-----------------------------------Faker Contestant Data
 unless User.all.count > 50
-  100.times do
+  50.times do
     email = Faker::Internet.free_email
     username = Faker::Internet.username
     password = Faker::Internet.password(8)
     best_streak = Faker::Number.within(1..15)
-    current_streak = Faker::Number.within(0..10)
+    current_streak = 0
     user = User.create(email: email, username: username, password_digest: password, current_streak: current_streak, best_streak: best_streak)
   end
+
+  # make an Admin on db:seed
+  User.create(email: "email@gmail.com", username: "admin", password: "1234567890", admin: true)
+
+
+  User.all.each do |user|
+    props = Prop.all.count
+    arr = Array(1..props).sample(15)
+    side = ["home", "away"].sample(1)
+    8.times do
+      user.user_picks.create(prop_id: arr.sample, side: side.sample(1).first)
+    end
+  end
 end
-
-# make an Admin on db:seed
-
-User.create(email: "email@gmail.com", username: "admin", password: "1234567890", admin: true)
