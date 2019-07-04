@@ -148,6 +148,15 @@ body a {
   font-weight: 600;
 }
 
+.alert-danger {
+  background-color: rgba(205, 18, 49, 0.54);
+  font-weight: 600;
+  margin-bottom: 15px;
+  padding: 10px;
+  text-align: center;
+
+}
+
 .app-logo {
   display: block;
   margin-left: auto;
@@ -232,6 +241,6 @@ body a {
 
 .signup {
   padding-top: 20px;
-  
+
 
 }
