@@ -1,5 +1,5 @@
 class PropsController < ApplicationController
-  before_action :require_login, only: [:new]
+  before_action :require_login, only: [:new, :add_prop_to_user_entry]
   before_action :require_admin, only: [:new, :create]
   layout :choose_layout
   include PropsHelper
@@ -24,19 +24,12 @@ class PropsController < ApplicationController
   end
 
   def add_prop_to_user_entry
-    if logged_in? && user_selection
-      if user_selection.locked
-        flash[:danger] = "You cannot make a new pick. Your last pick is still pending."
-        redirect_to root_path
-      else
-        make_selection(pick_params)
-      end
-    elsif logged_in?
-      make_selection(pick_params)
+    if user_selection && user_selection.prop.lock_prop? #must have this conditional to check if a prop is locked if the browser is not refreshed (which locks props)
+      flash[:danger] = "You cannot make a new pick. Your last pick is still pending."
       redirect_to root_path
     else
-      # TODO: Allow user to make selection if not logged in, but not lose selection after logging in. (queries)
-      redirect_to login_path
+      make_selection(pick_params)
+      redirect_to root_path
     end
   end
 
