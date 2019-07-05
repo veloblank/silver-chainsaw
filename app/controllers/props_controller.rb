@@ -24,9 +24,13 @@ class PropsController < ApplicationController
   end
 
   def add_prop_to_user_entry
-    if logged_in? && user_selection.locked
-      flash[:danger] = "You cannot make a new pick. Your last pick is still pending."
-      redirect_to root_path
+    if logged_in? && user_selection
+      if user_selection.locked
+        flash[:danger] = "You cannot make a new pick. Your last pick is still pending."
+        redirect_to root_path
+      else
+        make_selection(pick_params)
+      end
     elsif logged_in?
       make_selection(pick_params)
       redirect_to root_path
