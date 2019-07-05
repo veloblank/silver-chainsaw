@@ -51,7 +51,7 @@ unless User.all.count > 29
     username = Faker::Internet.username
     #password = Faker::Internet.password(8)
     password = "1234567890"
-    user = User.create(email: email, username: username, password_digest: password)
+    user = User.create(email: email, username: username, password: password)
     user.create_pick_history
   end
 
