@@ -27,7 +27,7 @@ class PropsController < ApplicationController
     if logged_in? && user_selection.locked
       flash[:danger] = "You cannot make a new pick. Your last pick is still pending."
       redirect_to root_path
-    elsif
+    elsif logged_in?
       make_selection(pick_params)
       redirect_to root_path
     else
