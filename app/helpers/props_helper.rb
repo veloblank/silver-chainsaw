@@ -3,7 +3,7 @@ module PropsHelper
   def make_selection(params)
     prop = Prop.find_by(id: params[:q])
     side = params[:side]
-    pick = current_user.user_picks.create(prop_id: prop.id, side: side)
+    current_user.create_user_picks(prop_id: prop.id, side: side)
   end
 
   def prop_locked(prop)
@@ -75,7 +75,7 @@ module PropsHelper
     if prop.locked && !prop.scored_by_admin
       user_selection.update(locked: true)
     else
-      user_selection.update(locked: true)
+      user_selection.update(locked: false)
     end
   end
 end
