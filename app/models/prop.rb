@@ -32,12 +32,12 @@ class Prop < ApplicationRecord
 
   def lock_prop?
     if start_time <= DateTime.current && !scored_by_admin
-      self.update(locked: true)
+      update(locked: true)
     end
   end
 
   def admin_score
-    self.update(:scored_by_admin => true)
+    update(:scored_by_admin => true, locked: true)
   end
 
 

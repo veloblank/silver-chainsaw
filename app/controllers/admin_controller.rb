@@ -15,7 +15,6 @@ class AdminController < ApplicationController
     redirect_to score_props_path
   end
 
-
   def score_params
     params.require(:prop).permit(:home_team_won, :away_team_won, :prop_id)
   end
