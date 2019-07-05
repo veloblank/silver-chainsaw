@@ -10,8 +10,7 @@ class AdminController < ApplicationController
     fill_out_score_params(params)
     if prop.update(score_params)
       prop.admin_score
-      UserPick.score_away_picks(prop)
-      UserPick.score_home_picks(prop)
+      UserPick.score_pick(prop)
     end
     redirect_to score_props_path
   end

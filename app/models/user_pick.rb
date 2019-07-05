@@ -2,34 +2,33 @@ class UserPick < ApplicationRecord
   belongs_to :user
   belongs_to :prop
 
-  def self.score_away_picks(prop)
-    picks = UserPick.where("prop_id = ? AND side = ?", prop.id, "away")
+  def self.score_pick(prop)
+    prop.admin_score
+    picks = UserPick.where("prop_id = ?", prop.id)
     picks.each do |pick|
       if prop.away_team_won
-        pick.update(side_won: true, scored: true)
-        pick.user.increment_streak
-        pick.user.check_best_streak
+        if pick.side == "away"
+          pick.update(side_won: true, scored: true)
+          pick.user.increment_streak
+          pick.user.check_best_streak
+          prop.update(:home_team_won => false)
+        else
+          pick.update(side_won: false, scored: true)
+          pick.user.reset_streak
+          prop.update(:home_team_won => true)
+        end
       else
-        pick.update(side_won: false, scored: true)
-        pick.user.reset_streak
+        if pick.side == "home"
+          pick.update(side_won: true, scored: true)
+          pick.user.increment_streak
+          pick.user.check_best_streak
+          prop.update(:away_team_won => false)
+        else
+          pick.update(side_won: false, scored: true)
+          pick.user.reset_streak
+          prop.update(:away_team_won => true)
+        end
       end
     end
   end
-
-  def self.score_home_picks(prop)
-    picks = UserPick.where("prop_id = ? AND side = ?", prop.id, "home")
-    picks.each do |pick|
-      if prop.home_team_won
-        pick.update(side_won: true, scored: true)
-        pick.user.increment_streak
-        pick.user.check_best_streak
-      else
-        pick.update(side_won: false, scored: true)
-        pick.user.reset_streak
-      end
-    end
-  end
-
-
-
 end
