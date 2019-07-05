@@ -1,4 +1,6 @@
 class AdminController < ApplicationController
+  before_action :require_admin
+  
   def score_props
     @props = Prop.needs_scoring
   end

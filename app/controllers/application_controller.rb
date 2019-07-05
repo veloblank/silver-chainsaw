@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_admin
-    redirect_to root_path unless current_user.admin
+    redirect_to root_path unless logged_in? && is_admin?
   end
 
   def is_admin?
