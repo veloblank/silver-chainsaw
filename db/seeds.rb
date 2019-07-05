@@ -48,13 +48,16 @@ unless User.all.count > 29
     password = Faker::Internet.password(8)
     user = User.create(email: email, username: username, password_digest: password)
     user.create_pick_history
-    props = Prop.all.count
-    arr = Array(1..props).sample(props / 3)
-    sides = ["home", "away"]
-    i = 0
-    arr.count.times do
-      user.user_picks.create(prop_id: arr[i], side: sides.sample(1).first)
-      ++i
+  end
+
+  props = Prop.all.count
+  sides = ["home", "away"]
+  User.all.each do |user|
+    10.times do
+      arr = Array(1..props).sample(props/30)
+      arr.each_with_index do |arg, n|
+        user.user_picks.create(prop_id: arr[n], side: sides.sample(1).first)
+      end
     end
   end
 end
