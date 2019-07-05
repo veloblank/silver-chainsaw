@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   before_action :require_admin
-  
+
   def score_props
     @props = Prop.needs_scoring
   end
@@ -9,7 +9,7 @@ class AdminController < ApplicationController
     prop = Prop.find(params[:prop][:prop])
     fill_out_score_params(params)
     if prop.update(score_params)
-      prop.update(:scored_by_admin => true)
+      prop.admin_score
       UserPick.score_away_picks(prop)
       UserPick.score_home_picks(prop)
     end
