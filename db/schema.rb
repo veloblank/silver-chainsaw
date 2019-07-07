@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20190612035918) do
     t.boolean  "home_team_won"
     t.boolean  "away_team_won"
     t.boolean  "scored_by_admin",      default: false
+    t.integer  "board_id"
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
-    t.integer  "board_id"
   end
 
   create_table "user_picks", force: :cascade do |t|
