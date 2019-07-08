@@ -50,10 +50,31 @@ header {
   font-size: 1.15em;
 }
 
-.logo div {
+.welcome {
+  height: 50%;
   font-weight: 600;
   margin-left: 25px;
-  display: inline;
+  float: left;
+  padding-top: 40px;
+}
+
+.authform-or {
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-align: center;
+  color: rgb(51, 51, 51);
+  font-weight: bold;"
+}
+
+.streak-disp {
+  height: 50%;
+  font-weight: 600;
+  font-size: 35px;
+}
+
+
+.logo img{
+  float: left;
 }
 
 nav {
@@ -252,4 +273,9 @@ body a {
   list-style: none;
   font-weight: 600;
   background-color: yellow;
+}
+
+.google-signin {
+  text-align: center;
+
 }
