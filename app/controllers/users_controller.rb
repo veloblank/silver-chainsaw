@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.create_pick_history
     if @user.save
       login @user
       redirect_to root_path
