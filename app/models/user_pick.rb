@@ -27,7 +27,13 @@ class UserPick < ApplicationRecord
           pick.user.reset_streak
         end
       end
-      pick.user.pick_history.user_picks << pick
+      pick.add_to_pick_history(pick)
+    end
+  end
+
+  def add_to_pick_history(pick)
+    if scored?
+      self.user.pick_history.user_picks << pick
     end
   end
 end
