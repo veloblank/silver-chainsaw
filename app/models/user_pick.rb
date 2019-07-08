@@ -1,6 +1,9 @@
 class UserPick < ApplicationRecord
   belongs_to :user
   belongs_to :prop
+  belongs_to :pick_history
+  scope :is_scored?, -> {where(scored: true)}
+  scope :needs_scoring?, -> {where(scored: false)}
 
   def self.score_pick(prop)
     picks = UserPick.where("prop_id = ?", prop.id)
@@ -24,6 +27,7 @@ class UserPick < ApplicationRecord
           pick.user.reset_streak
         end
       end
+      pick.user.pick_history.user_picks << pick
     end
   end
 end
