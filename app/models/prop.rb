@@ -4,7 +4,7 @@ class Prop < ApplicationRecord
   has_many :users, through: :user_picks
   validates :title, :date, :start_time, :sport, :home_team, :away_team, :board_id, presence: true
   scope :todays_sorted_props, -> {where(:date => "#{DateTime.now.to_date}").order(:start_time)}
-  scope :needs_scoring, -> {where(scored_by_admin: false)}
+  scope :needs_scoring?, -> {where(scored_by_admin: false)}
 
 
 
