@@ -6,6 +6,9 @@
     <%= f.label :password %>
     <%= f.password_field :password %><br>
     <%= f.submit "Sign in" %><br>
-    <h4>New user? <%= link_to "Sign up now!", signup_path %></h4>
+    <div class="google-signin">
+      <%= image_tag "icon-google.svg" %><%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+    </div>
+        <h4>New user? <%= link_to "Sign up now!", signup_path %></h4>
   <% end %>
 </div>

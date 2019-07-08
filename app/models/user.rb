@@ -21,4 +21,16 @@ class User < ApplicationRecord
       self.update(:best_streak => current_streak)
     end
   end
+
+  def self.create_by_google_omniauth(auth)
+    email = auth[:info][:email]
+    self.find_or_create_by(username: create_username_by_email(email)) do |u|
+      u.email = email
+      u.password = SecureRandom.hex
+    end
+  end
+
+  def self.create_username_by_email(email)
+    email.split("@").first
+  end
 end

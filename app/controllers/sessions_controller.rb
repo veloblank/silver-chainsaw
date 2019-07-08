@@ -4,18 +4,30 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:session][:username])
-    if user && user.authenticate(params[:session][:password])
+    if params[:provider]
+      user = User.create_by_google_omniauth(auth)
       login user
       redirect_to root_path
     else
-      flash.now[:danger] = "The username and password combination you entered is incorrect."
-      render :new
+      user = User.find_by(username: params[:session][:username])
+      if user && user.authenticate(params[:session][:password])
+        login user
+        redirect_to root_path
+      else
+        flash.now[:danger] = "The username and password combination you entered is incorrect."
+        render :new
+      end
     end
   end
 
   def destroy
     logout if logged_in?
     redirect_to root_path
+  end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
   end
 end

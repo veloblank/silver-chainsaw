@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   get 'login', to: "sessions#new"
   post 'login', to: "sessions#create"
+
+  get '/auth/:provider/callback' => 'sessions#create'
+
   delete 'logout', to: "sessions#destroy"
 
   resources :boards do
