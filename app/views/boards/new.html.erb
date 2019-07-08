@@ -1,0 +1,21 @@
+<div class="create-col">
+  <div class="error-explanation">
+    <% if @board.errors.any? %>
+      <ul>
+      <% @board.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+      </ul>
+  </div>
+
+  <br>
+  <br>
+
+  <%= form_for @board do |f| %>
+    <%= f.label :date, "New Board Date:" %><br>
+    <%= f.date_select(:date, :order => [:month, :day, :year]) %><br>
+    <%= f.submit %>
+  <% end %>
+
+</div>
