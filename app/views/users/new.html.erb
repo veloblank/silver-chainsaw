@@ -15,5 +15,14 @@
       <%= f.password_field :password_confirmation %><br>
       <%= f.submit "Create Account" %>
     <% end %>
+      <div class="signin-errors">
+        <% if @user.errors.any? %>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </div>
   </div>
 </div>
