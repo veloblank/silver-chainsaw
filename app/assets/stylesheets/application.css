@@ -292,3 +292,13 @@ body a {
   background-color: #4c79af;
   color: white;
 }
+
+.prop-show {
+  position: absolute;
+  width: auto;
+  height: 300px;
+  left: 30%;
+  top: 50%;
+  margin-left: 0px;
+  margin-top: -250px;
+}
