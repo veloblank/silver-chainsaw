@@ -13,7 +13,10 @@ Specs:
 - [x] Include login
 - [x] Include logout
 - [x] Include third party signup/login
-- [] Include nested resource show or index (URL e.g. users/2/recipes)
+- [x] Include nested resource show or index (URL e.g. users/2/recipes)
+      props#index
+      boards/3/props
+
 - [] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 - [x] Include form display of validation errors
 

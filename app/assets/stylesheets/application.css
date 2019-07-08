@@ -114,7 +114,6 @@ nav a:hover {
 
 body a {
   color: black;
-
 }
 
 .right {
@@ -126,7 +125,6 @@ body a {
   width: 200px;
   max-width: 320px;
   margin: 0 auto;
-
 }
 
 .authform h1 {
@@ -262,8 +260,6 @@ body a {
 
 .signup {
   padding-top: 20px;
-
-
 }
 
 .signin-errors ul li{
@@ -277,5 +273,22 @@ body a {
 
 .google-signin {
   text-align: center;
+}
 
+.add-props {
+  text-align: center;
+  text-decoration: none;
+}
+
+.button {
+  transition-duration: 0.4s;
+  margin: 15px auto;
+  height: auto;
+  width: auto;
+  padding: 10px 35px;
+}
+
+.button:hover {
+  background-color: #4c79af;
+  color: white;
 }

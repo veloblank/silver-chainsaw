@@ -12,6 +12,13 @@
     (<%= @board.props.count%> Total)
   </span>
 </div>
+<% if current_user && current_user.admin %>
+<div class="add-props">
+  <%= form_tag(new_prop_path, {method: "GET"}) do -%>
+    <%= submit_tag("Add Props", :id=>"button", :class=>"button", :name=>"submit") %>
+  <% end -%>
+</div>
+<% end %>
 <br>
 
 <div class="prop-container">
