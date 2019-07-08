@@ -5,8 +5,13 @@ class BoardsController < ApplicationController
   end
 
   def create
-
-
+    @board = Board.new(board_params)
+    @board.name = @board.date.strftime('%Y%m%d')
+    if @board.save
+      redirect_to board_path(@board)
+    else
+      render :new
+    end
   end
 
   def show
@@ -36,6 +41,6 @@ class BoardsController < ApplicationController
   private
 
   def board_params
-    params.require(:board).permit(:name, :scored?)
+    params.require(:board).permit(:date)
   end
 end
