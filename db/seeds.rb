@@ -17,7 +17,7 @@ ary.each do |i|
   props.each do |p|
     date = p.css(".startTime").attr("data-locktime").value
     board_name = DateTime.parse(date).strftime('%Y%m%d')
-    board = Board.find_or_create_by(name: board_name)
+    board = Board.find_or_create_by(name: board_name, date: date)
     prop = Prop.new(
       title:  p.css(".gamequestion").text,
       date: DateTime.parse(date).in_time_zone('Eastern Time (US & Canada)').to_date,

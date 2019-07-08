@@ -14,9 +14,9 @@ ActiveRecord::Schema.define(version: 20190612035918) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
-    t.boolean  "scored",     default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.date     "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "pick_histories", force: :cascade do |t|
