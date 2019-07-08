@@ -13,11 +13,12 @@
       <div class="container">
         <div class="logo">
           <%= link_to image_tag("streak_on_rails.svg"), root_path %>
-          <div><%= "Welcome, #{current_user.username}" if current_user%></div>
+          <p style="font-weight:600;"><%= "Welcome, #{current_user.username}" if current_user%></p>
         </div>
           <nav>
             <ul>
               <li><%= link_to "Home", props_path %></li>
+              <li><%= link_to "Create Board", new_board_path %></li>
               <li><%= link_to "Create Props", new_prop_path %></li>
               <li><%= link_to "Score Props", score_props_path %></li>
               <% if !logged_in? %>
