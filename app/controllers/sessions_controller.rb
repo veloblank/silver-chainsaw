@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
         login user
         redirect_to root_path
       else
-        flash.now[:danger] = "The username and password combination you entered is incorrect."
+        flash[:danger] = "The username and password combination you entered is incorrect."
         render :new
       end
     end
