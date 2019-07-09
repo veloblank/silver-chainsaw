@@ -60,7 +60,7 @@ unless User.all.count > 29
     user.create_pick_history
     arr = Array(1..props).sample(props/3)
     arr.each_with_index do |arg, n|
-      user.user_picks.create(prop_id: arr[n], side: sides.sample(1).first, pick_history_id: nil)
+      user.user_picks.create(prop_id: arr[n], side: sides.sample(1).first, pick_history_id: user.pick_history.id)
     end
   end
 end

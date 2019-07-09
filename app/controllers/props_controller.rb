@@ -15,6 +15,7 @@ class PropsController < ApplicationController
   def create
     board = Board.find_by(name: params[:prop][:board]) || Board.new
     @prop = board.props.new(prop_params) #use belongs_to/has_many association
+    sanitize_time(@prop) #work-around for start_time not being the correct day from form
     if @prop.valid?
       @prop.save
       redirect_to prop_path(@prop)
@@ -54,6 +55,14 @@ class PropsController < ApplicationController
       :espn_game_identifier, :board_id, :home_team_won, :away_team_won,
       :scored_by_admin
     )
+  end
+
+  def sanitize_time(prop)
+    d = prop.date
+    t = prop.start_time
+    dt = DateTime.new(d.year, d.month, d.day, t.hour, t.min, t.sec, t.zone)
+    prop.date = dt.to_date
+    prop.start_time = dt.to_time
   end
 
   def pick_params

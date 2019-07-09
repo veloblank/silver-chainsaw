@@ -6,7 +6,7 @@ class AdminController < ApplicationController
   end
 
   def change_score
-    prop = Prop.find(params[:prop][:prop])
+    prop = Prop.find_by(id: params[:prop][:prop])
     fill_out_score_params(params)
     if prop.update(score_params)
       prop.admin_score
