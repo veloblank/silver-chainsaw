@@ -57,7 +57,7 @@ class PropsController < ApplicationController
   end
 
   def pick_params
-    params.permit(:q, :side, :pick_history_id)
+    params.permit(:prop_id, :side)
   end
 
 end
