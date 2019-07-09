@@ -1,9 +1,11 @@
 module PropsHelper
 
   def make_selection(params)
-    prop = Prop.find_by(id: params[:q])
-    side = params[:side]
-    current_user.user_picks.create(prop_id: prop.id, side: side)
+    prop = Prop.find(params[:prop_id])
+    pick_history = current_user.pick_history
+    selection = current_user.user_picks.create(pick_params)
+    selection.pick_history = pick_history
+    selection.save
   end
 
   def prop_locked(prop)

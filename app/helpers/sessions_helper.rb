@@ -18,6 +18,6 @@ module SessionsHelper
   end
 
   def user_has_selected_pick?
-    params[:q] ? true : false
+    params[:prop_id] ? true : false
   end
 end
