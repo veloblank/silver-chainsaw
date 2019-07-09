@@ -252,7 +252,10 @@ body a {
 }
 
 .prop-container {
-  float: left;
+  margin: auto;
+  width: 80%;
+  border: 3px solid black;
+  padding: 10px;
 }
 
 .status-container {

@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def choose_layout
-    if current_user && is_admin?  #takes care of error when no user is logged in
+    if logged_in? && is_admin?
       "admin"
     else
       "application"
