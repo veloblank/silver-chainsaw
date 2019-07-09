@@ -26,8 +26,8 @@ class Prop < ApplicationRecord
     Prop.select(:sport).map(&:sport).uniq
   end
 
-  def self.filter_and_sort_by_date(date)
-    Prop.all.where("date = '#{date}'").order(:start_time)
+  def self.filter_and_sort_by_date(board)
+    Prop.all.where("date = '#{board.date}'").order(:start_time)
   end
 
   def lock_prop?
