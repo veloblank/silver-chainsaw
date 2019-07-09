@@ -40,10 +40,11 @@ class PropsController < ApplicationController
       @props = Prop.filter_and_sort_by_date(@board)
     else
       @props = Prop.todays_sorted_props
-      @board = Board.find_by(id: @props.first.board_id)
       if @props.empty?
+        flash[:danger] = "You must create a new board."
         redirect_to new_board_path
       end
+      @board = Board.find_by(id: @props.first.board_id)
     end
   end
 
