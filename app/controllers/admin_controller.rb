@@ -6,8 +6,7 @@ class AdminController < ApplicationController
   end
 
   def change_score
-    prop = Prop.find_by(id: params[:prop][:prop])
-    fill_out_score_params(params)
+    prop = Prop.find(params[:prop][:prop_id])
     if prop.update(score_params)
       prop.admin_score
       UserPick.score_pick(prop)
@@ -16,14 +15,6 @@ class AdminController < ApplicationController
   end
 
   def score_params
-    params.require(:prop).permit(:home_team_won, :away_team_won, :prop_id)
-  end
-
-  def fill_out_score_params(params)
-    if params[:prop][:home_team_won]
-      params[:prop][:away_team_won] = false
-    else
-      params[:prop][:home_team_won] = false
-    end
+    params.require(:prop).permit(:home_team_won, :away_team_won)
   end
 end
