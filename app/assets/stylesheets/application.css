@@ -209,12 +209,28 @@ body a {
   background-color: rgb(240, 190, 12);
 }
 
-.scoring-table th {
+.props-needing-scoring {
   text-align: center;
+  padding: 15px 0px;
+}
+
+.scoring-table {
+  width: 80%;
+  margin: 0 auto;
+}
+.scoring-table tr th {
+  text-align: center;
+  width: auto;
+  height: auto;
+}
+
+.scoring-table tr td {
+  width: auto;
+  height: auto;
 }
 
 .scoring-table td.side:hover {
-  background-color: red;
+  background-color: rgb(40, 201, 0);
 }
 
 .scoring-table button {
@@ -224,6 +240,8 @@ body a {
   display: block;
   margin: 0 auto;
 }
+
+
 
 .leaderboard-wrapper table {
   margin: 0 auto;

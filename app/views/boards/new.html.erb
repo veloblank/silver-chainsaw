@@ -4,9 +4,9 @@
         <li><%= @board.errors.first[1] %></li>
     <% end %>
   </div>
+  <br>
+  <br>
 
-  <br>
-  <br>
   <div>
     <%= form_for @board do |f| %>
       <%= f.label :date, "New Board Date:" %><br>
@@ -14,5 +14,4 @@
       <%= f.submit %>
     <% end %>
   </div>
-
 </div>
