@@ -185,7 +185,7 @@ body a {
 .centered {
     position: absolute;
     width: 180px;
-    height: 300px;
+    height: auto;
     left: 50%;
     top: 50%;
     margin-left: -50px;
@@ -294,11 +294,12 @@ body a {
 }
 
 .prop-show {
-  position: absolute;
   width: auto;
-  height: 300px;
+  height: auto;
   left: 30%;
   top: 50%;
   margin-left: 0px;
   margin-top: -250px;
+  border: solid aquamarine;
+  padding: 25px;
 }
