@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :previous_board, :next_board
-  include SessionsHelper
   before_filter :set_timezone
   layout :choose_layout
+  include SessionsHelper
+  helper_method :previous_board, :next_board
 
   def set_timezone
     Time.zone = 'Eastern Time (US & Canada)'
