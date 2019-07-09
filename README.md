@@ -10,7 +10,7 @@ After the seed file has generated the data, start a Rails server in the terminal
 
 SoR was created with an ```admin``` user, who's password is also ```1234567890```. Using the ```admin``` login, the user can create prop boards, create props, score (grade) the winners of props, and perform other administrator duties of the application.
 
-There can be an extensive amount of "feature creep" in this application. Many initial features were built out to meet the minimum project requirements and then abandoned or changed when "creep" set in. Pull requests against the developer's code are welcomed if there are features that can be implemented or made better. The CRUD nature of the project was intended to be met satisfactorily, but applications such as SoR, should protect the scope with which an outside "do-badder" can access the resources that have been brought together.
+There can be an extensive amount of "feature creep" in this application. Many initial features were built out to meet the minimum project requirements and then abandoned or changed when "creep" set in. Pull requests against the developer's code are welcomed if there are features that can be implemented or made better. The CRUD nature of the project was intended to be met satisfactorily, but applications such as SoR should protect the scope with which an outside "do-badder" can access the resources that have been brought together.
 
 ## Specifications for the Rails Assessment
 https://github.com/veloblank/silver-chainsaw/blob/master/project-spec.md
