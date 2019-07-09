@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   def create
     if params[:provider]
       user = User.create_by_google_omniauth(auth)
+      user.create_pick_history
       login user
       redirect_to root_path
     else
