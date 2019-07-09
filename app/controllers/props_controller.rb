@@ -37,7 +37,7 @@ class PropsController < ApplicationController
   def index
     if params[:board_id]
       @board = Board.find_by(id: params[:board_id])
-      @props = Prop.filter_and_sort_by_date(@board.name.to_date)
+      @props = Prop.filter_and_sort_by_date(@board)
     else
       @props = Prop.todays_sorted_props
       @board = Board.find_by(id: @props.first.board_id)
