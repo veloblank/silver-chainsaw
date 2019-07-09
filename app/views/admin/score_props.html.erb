@@ -1,31 +1,33 @@
-<h1><%= "#{pluralize(@props.count, "prop")} need scoring" %></h1>
+<div class="props-needing-scoring">
+  <h1><%= "#{pluralize(@props.count, "prop")} need scoring" %></h1>
+</div>
 
 <table class="scoring-table">
-  <% @props.each do |prop|%>
   <tr>
     <th>Date</th>
     <th>Prop Title</th>
     <th>Home Team</th>
     <th>Away Team</th>
   </tr>
+  <% @props.each do |prop|%>
   <tr>
-    <td><%= prop.date %></td>
-    <td><%= prop.title %></td>
+    <td class="date"><strong><%= month_day(prop) %></strong></td>
+    <td class="title"><%= prop.title %></td>
     <div id="home-side"">
       <td class="side">
         <%= form_for :prop do |f| %>
-        <%= f.hidden_field :home_team_won, :value => true %>
-        <%= f.hidden_field :prop, :value => prop.id %>
-        <%= f.button prop.home_team %>
+          <%= f.hidden_field :home_team_won, :value => true %>
+          <%= f.hidden_field :prop, :value => prop.id %>
+          <%= f.button prop.home_team %>
         <% end %>
       </td>
     </div>
     <div id="away-side">
       <td class="side">
         <%= form_for :prop do |f| %>
-        <%= f.hidden_field :away_team_won, :value => true %>
-        <%= f.hidden_field :prop, :value => prop.id %>
-        <%= f.button prop.away_team %>
+          <%= f.hidden_field :away_team_won, :value => true %>
+          <%= f.hidden_field :prop, :value => prop.id %>
+          <%= f.button prop.away_team %>
         <% end %>
       </td>
     </div>
