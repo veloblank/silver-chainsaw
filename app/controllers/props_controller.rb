@@ -26,7 +26,7 @@ class PropsController < ApplicationController
 
   def add_prop_to_user_entry
     if user_selection && user_selection.prop.lock_prop? #must have this conditional to check if a prop is locked if the browser is not refreshed (which locks props)
-      flash[:danger] = "You cannot make a new pick. Your last pick is still pending."
+      flash.now[:danger] = "You cannot make a new pick. Your last pick is still pending."
       redirect_to root_path
     else
       make_selection(pick_params)
@@ -41,7 +41,7 @@ class PropsController < ApplicationController
     else
       @props = Prop.todays_sorted_props
       if @props.empty?
-        flash[:danger] = "You must create a new board."
+        flash.now[:danger] = "You must create a new board."
         redirect_to new_board_path
       end
       @board = Board.find_by(id: @props.first.board_id)
