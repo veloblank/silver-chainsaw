@@ -122,7 +122,7 @@ body a {
 
 .authform {
   padding-top: 30px;
-  width: 200px;
+  width: 225px;
   max-width: 320px;
   margin: 0 auto;
 }
@@ -316,12 +316,13 @@ body a {
 
 .prop-show {
   width: auto;
+  max-width: 600px;
   height: auto;
   left: 30%;
   top: 50%;
-  margin-left: 0px;
+  margin: auto;
   margin-top: -250px;
-  border: solid aquamarine;
+  border: solid black;
   padding: 25px;
 }
 
