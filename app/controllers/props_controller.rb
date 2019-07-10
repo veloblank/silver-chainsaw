@@ -9,7 +9,7 @@ class PropsController < ApplicationController
   end
 
   def show
-    set_board
+    set_prop
   end
 
   def create
