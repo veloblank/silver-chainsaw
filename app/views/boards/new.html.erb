@@ -9,9 +9,7 @@
 
   <div>
     <%= form_for @board do |f| %>
-      <%= f.label :date, "New Board Date:" %><br>
-      <%= f.date_select(:date, :order => [:month, :day, :year]) %><br>
-      <%= f.submit %>
+      <%= render partial: "board_form", locals: {f: f} %>
     <% end %>
   </div>
 </div>

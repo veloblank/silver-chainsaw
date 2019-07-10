@@ -1,0 +1,9 @@
+<div class="error-explanation">
+    <% if @prop.errors.any? %>
+      <ul>
+      <% @prop.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    <% end %>
+      </ul>
+  </div>
