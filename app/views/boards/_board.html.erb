@@ -24,7 +24,7 @@
 
 <div class="prop-container">
   <% @props.each do |prop| %>
-  <div class="gameTable <%= prop_selected(prop) %> <%= user_lost(prop) %> <%= user_won(prop) %> <%= prop_scored(prop) %> <%= prop_locked(prop) %>" %>
+  <div class="gameTable <%= class_prop_selected(prop) %> <%= class_user_lost(prop) %> <%= class_user_won(prop) %> <%= class_prop_scored(prop) %> <%= class_prop_locked(prop) %>" %>
     <div class="prop-title">
       <strong><%= link_to prop.title, prop_path(prop) %></strong>
       <% if current_user && current_user.admin %>
