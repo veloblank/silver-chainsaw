@@ -20,7 +20,7 @@ class BoardsController < ApplicationController
   end
 
   def edit
-
+    @board = Board.find_by(id: params[:id])
   end
 
   def leaderboard
@@ -28,11 +28,15 @@ class BoardsController < ApplicationController
   end
 
   def update
-
+    @board = Board.find_by(id: params[:id])
+    @board.update(board_params)
+    redirect_to root_path
   end
 
   def destroy
-
+    @board = Board.find_by(id: params[:id])
+    @board.delete
+    redirect_to root_path
   end
 
   private
