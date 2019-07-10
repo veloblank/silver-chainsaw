@@ -15,7 +15,7 @@
  */
 
  * {
-   margin: 0px;
+   margin: 5px;
    padding: 0px;
    box-sizing: border-box;
  }
@@ -323,4 +323,23 @@ body a {
   margin-top: -250px;
   border: solid aquamarine;
   padding: 25px;
+}
+
+.edit-prop-button {
+  float: right;
+}
+
+.edit-col {
+  width: 50%;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.edit-col input {
+  width: 75%;
+}
+
+#delete-prop {
+  display: inline-block;
+  float: right;
 }
