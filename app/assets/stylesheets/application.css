@@ -297,16 +297,16 @@ body a {
 }
 
 .signup {
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 .signin-errors ul li{
-  margin: 10px 3px 5px;
-  padding: 10px 5px 0px 15px;
+  margin: 5px 0px;
+  padding: 5px;
   position: relative;
   list-style: none;
   font-weight: 600;
-  background-color: yellow;
+  background-color: #e8e813;
 }
 
 .google-signin {

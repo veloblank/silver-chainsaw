@@ -1,7 +1,6 @@
 <div class="edit-col">
   <%= render "layouts/errors" %>
   <br>
-  <br>
   <%= form_for @board do |f| %>
     <%= render partial: "board_form", locals: {f: f} %>
   <% end %>
