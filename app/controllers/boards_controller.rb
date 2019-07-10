@@ -15,12 +15,12 @@ class BoardsController < ApplicationController
   end
 
   def show
-    @board = Board.find_by(id: params[:id])
+    set_board
     @props = Prop.filter_and_sort_by_date(@board)
   end
 
   def edit
-    @board = Board.find_by(id: params[:id])
+    set_board
   end
 
   def leaderboard
@@ -28,13 +28,13 @@ class BoardsController < ApplicationController
   end
 
   def update
-    @board = Board.find_by(id: params[:id])
+    set_board
     @board.update(board_params)
     redirect_to root_path
   end
 
   def destroy
-    @board = Board.find_by(id: params[:id])
+    set_board
     @board.delete
     redirect_to root_path
   end
@@ -43,5 +43,9 @@ class BoardsController < ApplicationController
 
   def board_params
     params.require(:board).permit(:date)
+  end
+
+  def set_board
+    @board = Board.find_by(id: params[:id])
   end
 end

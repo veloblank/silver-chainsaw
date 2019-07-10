@@ -9,7 +9,7 @@ class PropsController < ApplicationController
   end
 
   def show
-    @prop = Prop.find(params[:id])
+    set_board
   end
 
   def create
@@ -48,11 +48,11 @@ class PropsController < ApplicationController
     end
 
     def edit
-      @prop = Prop.find_by(id: params[:id])
+      set_prop
     end
 
     def update
-      @prop = Prop.find_by(id: params[:id])
+      set_prop
       if @prop.update(prop_params)
         redirect_to prop_path(@prop)
       else
@@ -61,13 +61,17 @@ class PropsController < ApplicationController
     end
 
     def destroy
-      @prop = Prop.find_by(id: params[:id])
+      set_prop
       @prop.delete
       redirect_to root_path
     end
   end
 
   private
+
+  def set_prop
+    @prop = Prop.find_by(id: params[:id])
+  end
 
   def prop_params
     params.require(:prop).permit(
