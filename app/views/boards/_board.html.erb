@@ -28,6 +28,7 @@
     <div class="prop-title">
       <strong><%= link_to prop.title, prop_path(prop) %></strong>
       <% if current_user && current_user.admin %>
+      <div class="editor-tools">
         <div class="edit-prop">
           <%= form_tag(edit_prop_path(prop), {method: "GET"}) do %>
             <%= submit_tag("Edit Prop", :id=>"button", :class=>"edit-prop-button", :name=>"submit") %>
@@ -36,6 +37,7 @@
         <p id="delete-prop"><%= link_to "Delete", prop_path(prop),
           :data => {:confirm => "Are you sure?",
           :method => "delete"} %></p>
+      </div>
       <% end %>
     </div>
       <table class="game-prop">

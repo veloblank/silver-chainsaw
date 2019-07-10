@@ -52,6 +52,11 @@ header {
   background-color: rgba(224, 24, 24, 0.5);
 }
 
+.editor-tools {
+  float: right;
+  margin: 7px;
+}
+
 .error-explanation li{
   padding: 10px 5px 0px 5px;
   list-style: none;
@@ -340,6 +345,7 @@ body a {
 
 .edit-prop-button {
   float: right;
+  margin-bottom: 10px;
 }
 
 .edit-col {
