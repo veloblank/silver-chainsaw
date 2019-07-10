@@ -1,6 +1,6 @@
 class PropsController < ApplicationController
   before_action :require_login, only: [:new, :add_prop_to_user_entry]
-  before_action :require_admin, only: [:new, :create]
+  before_action :require_admin, only: [:new, :create, :edit, :update, :destroy]
   layout :choose_layout
   include PropsHelper
 
@@ -45,6 +45,25 @@ class PropsController < ApplicationController
         redirect_to new_board_path
       end
       @board = Board.find_by(id: @props.first.board_id)
+    end
+
+    def edit
+      @prop = Prop.find_by(id: params[:id])
+    end
+
+    def update
+      @prop = Prop.find_by(id: params[:id])
+      if @prop.update(prop_params)
+        redirect_to prop_path(@prop)
+      else
+        render :edit
+      end
+    end
+
+    def destroy
+      @prop = Prop.find_by(id: params[:id])
+      @prop.delete
+      redirect_to root_path
     end
   end
 
