@@ -5,24 +5,49 @@
 
   <div class="authform signup">
     <%= form_for :user, url: '/users' do |f| %>
+    <% if @user.errors.any? %>
+      <div class="signin-errors">
+        <ul>
+        <% @user.errors.full_messages_for(:email).each do |m| %>
+          <li><%= m %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
       <%= f.label :email %>
-      <%= f.text_field :email, autofocus: true %><br><br>
+      <%= f.text_field :email, autofocus: true %><br>
+      <div class="signin-errors">
+        <ul>
+        <% @user.errors.full_messages_for(:username).each do |m| %>
+          <li><%= m %></li>
+        <% end %>
+        </ul>
+      </div>
       <%= f.label :username %>
-      <%= f.text_field :username %><br><br>
+      <%= f.text_field :username %><br>
+      <% if @user.errors.any? %>
+        <div class="signin-errors">
+          <ul>
+          <% @user.errors.full_messages_for(:password).each do |m| %>
+            <li><%= m %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
       <%= f.label :password %>
-      <%= f.password_field :password %><br><br>
+      <%= f.password_field :password %><br>
+      <% if @user.errors.any? %>
+        <div class="signin-errors">
+          <ul>
+          <% @user.errors.full_messages_for(:password_confirmation).each do |m| %>
+            <li><%= m %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %><br>
       <%= f.submit "Create Account" %>
     <% end %>
-      <div class="signin-errors">
-        <% if @user.errors.any? %>
-          <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        <% end %>
-      </div>
   </div>
 </div>
