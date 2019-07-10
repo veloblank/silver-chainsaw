@@ -12,19 +12,32 @@
     (<%= @board.props.count%> Total)
   </span>
 </div>
+
 <% if current_user && current_user.admin %>
-<div class="add-props">
-  <%= form_tag(new_prop_path, {method: "GET"}) do -%>
-    <%= submit_tag("Add Props", :id=>"button", :class=>"button", :name=>"submit") %>
-  <% end -%>
-</div>
+  <div class="add-props">
+    <%= form_tag(new_prop_path, {method: "GET"}) do %>
+      <%= submit_tag("Add Props", :id=>"button", :class=>"button", :name=>"submit") %>
+    <% end %>
+  </div>
 <% end %>
 <br>
 
 <div class="prop-container">
   <% @props.each do |prop| %>
   <div class="gameTable <%= prop_selected(prop) %> <%= user_lost(prop) %> <%= user_won(prop) %> <%= prop_scored(prop) %> <%= prop_locked(prop) %>" %>
-    <div class="prop-title"><strong><%= link_to prop.title, prop_path(prop) %></strong></div>
+    <div class="prop-title">
+      <strong><%= link_to prop.title, prop_path(prop) %></strong>
+      <% if current_user && current_user.admin %>
+        <div class="edit-prop">
+          <%= form_tag(edit_prop_path(prop), {method: "GET"}) do %>
+            <%= submit_tag("Edit Prop", :id=>"button", :class=>"edit-prop-button", :name=>"submit") %>
+          <% end %>
+        </div>
+        <p id="delete-prop"><%= link_to "Delete", prop_path(prop),
+          :data => {:confirm => "Are you sure?",
+          :method => "delete"} %></p>
+      <% end %>
+    </div>
       <table class="game-prop">
           <tr>
             <td rowspan='2' class="sport-start">
