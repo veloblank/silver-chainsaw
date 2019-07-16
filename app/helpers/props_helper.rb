@@ -41,7 +41,7 @@ module PropsHelper
   end
 
   def month_day(prop)
-    prop.date.strftime('%b%e')
+    prop.date.strftime('%b %e')
   end
 
   def opponent_away(prop)
