@@ -9,7 +9,7 @@ module PropsHelper
   end
 
   def class_prop_locked(prop)
-    prop.lock_prop?
+    prop.should_lock_prop?
     if prop.locked
       'prop-locked'
     end

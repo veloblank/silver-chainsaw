@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+
+  root "props#index"
   get 'admin/score_props', to: "admin#score_props", as: "score_props"
   post 'admin/score_props', to: "admin#change_score"
 
-  root "props#index"
 
   post "createOrUpdateEntry/:prop_id", to: "props#add_prop_to_user_entry", as: "add_prop_to_user_entry"
 

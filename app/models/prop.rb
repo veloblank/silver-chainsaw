@@ -30,7 +30,7 @@ class Prop < ApplicationRecord
     Prop.all.where("date = '#{board.date}'").order(:start_time)
   end
 
-  def lock_prop?
+  def should_lock_prop?
     if start_time <= DateTime.current && !scored_by_admin
       update(locked: true)
     end

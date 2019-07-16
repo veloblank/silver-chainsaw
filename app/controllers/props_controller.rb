@@ -25,7 +25,7 @@ class PropsController < ApplicationController
   end
 
   def add_prop_to_user_entry
-    if user_selection && user_selection.prop.lock_prop? #must have this conditional to check if a prop is locked if the browser is not refreshed (which locks props)
+    if user_selection && user_selection.prop.should_lock_prop? #must have this conditional to check if a prop is locked if the browser is not refreshed (which locks props)
       flash.now[:danger] = "You cannot make a new pick. Your last pick is still pending."
       redirect_to root_path
     else
