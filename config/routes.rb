@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post 'login', to: "sessions#create"
 
   get '/auth/:provider/callback' => 'sessions#create'
+  #only Google OAuth initially, but :provider used for additional OAuth later
 
   delete 'logout', to: "sessions#destroy"
 
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   resources :props
-  resources :users, except: %i[show]
+  resources :users, except: %i[show index edit update destroy]
   get 'signup', to: "users#new", as: "signup"
   get 'leaderboard', to: "boards#leaderboard"
 end
