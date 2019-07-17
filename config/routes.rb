@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   delete 'logout', to: "sessions#destroy"
 
   resources :boards do
-    resources :props, only: %i[index]
+    resources :props, only: %i[index new]
   end
 
   resources :props
