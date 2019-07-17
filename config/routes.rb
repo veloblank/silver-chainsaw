@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   resources :props
-  resources :users
+  resources :users, except: %i[show]
   get 'signup', to: "users#new", as: "signup"
   get 'leaderboard', to: "boards#leaderboard"
 end
