@@ -6,6 +6,9 @@ class PropsController < ApplicationController
 
   def new
     @prop = Prop.new
+    if params[:board_id]
+      @board = Board.find_by(:id => params[:board_id])
+    end
   end
 
   def show

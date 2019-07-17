@@ -18,7 +18,7 @@
 <%= f.label :espn_game_identifier, "ESPN Gamecast ID:" %><br>
 <%= f.text_field :espn_game_identifier, placeholder: "Optional" %><br>
 <%= f.label :board, "Add to Board:" %><br>
-<%= f.text_field :board, value: nil, list: "boards_autocomplete" %>
+<%= f.text_field :board, value: @board.try(:name), list: "boards_autocomplete" %>
   <datalist id="boards_autocomplete">
     <% Board.all.each do |board| %>
       <% if board.name >= DateTime.now.strftime("%Y%m%d") %>
