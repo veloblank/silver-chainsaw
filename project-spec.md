@@ -30,11 +30,11 @@ Specs:
 - [x] Include login
 - [x] Include logout
 - [x] Include third party signup/login
-      :```google-oauth2```
+      :google-oauth2
 
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
-      :```props#index```
-      :```"/boards/3/props"```
+      :props#index
+      :"/boards/3/props"
 
 - [x] Include nested resource "new" form
     :```"/boards/5/props/new"```
