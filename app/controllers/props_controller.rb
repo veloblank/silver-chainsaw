@@ -19,8 +19,7 @@ class PropsController < ApplicationController
     board = Board.find_by(name: params[:prop][:board]) || Board.new
     @prop = board.props.new(prop_params) #use belongs_to/has_many association
     sanitize_time(@prop) #work-around for start_time not being the correct day from form
-    if @prop.valid?
-      @prop.save
+    if @prop.save
       redirect_to prop_path(@prop)
     else
       render :new
