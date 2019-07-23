@@ -1,8 +1,12 @@
 class Leaderboard < ApplicationRecord
   #scope :custom_leaders, ->(limit) {where ("best_streak desc").limit(limit)}
 
+  #def self.custom_leaders(limit)
+  #  order(best_streak: :desc).limit(limit)
+  #end
+
   def self.top_25_monthly
-    User.order(best_streak: :desc ).limit(25)
+    User.order(best_streak: :desc).limit(25)
   end
 
   def self.top_100_monthly
