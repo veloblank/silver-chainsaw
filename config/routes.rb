@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   root "props#index"
+  get 'admin/most_active_users', to: "admin#most_active_users"
+  
   get 'admin/score_props', to: "admin#score_props", as: "score_props"
   post 'admin/score_props', to: "admin#change_score"
 

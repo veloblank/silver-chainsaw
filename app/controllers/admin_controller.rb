@@ -5,6 +5,10 @@ class AdminController < ApplicationController
     @props = Prop.needs_scoring?
   end
 
+  def most_active_users
+    @users = User.joins(:user_picks).group("user_picks.user_id").order("count(user_picks.user_id) desc").limit(5)
+  end
+
   def change_score
     prop = Prop.find(params[:prop][:prop_id])
     if prop.update(score_params)
