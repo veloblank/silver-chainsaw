@@ -59,8 +59,9 @@ unless User.all.count > 29
   User.all.each do |user|
     user.create_pick_history
     arr = Array(1..props).sample(props/4)
+    confidence = Array(1..25)
     arr.each_with_index do |arg, n|
-      user.user_picks.create(prop_id: arr[n], side: sides.sample(1).first, pick_history_id: user.pick_history.id)
+      user.user_picks.create(prop_id: arr[n], user_confidence: confidence.sample, side: sides.sample, pick_history_id: user.pick_history.id)
     end
   end
 end
