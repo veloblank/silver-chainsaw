@@ -6,8 +6,6 @@ class UserPick < ApplicationRecord
   scope :needs_scoring?, -> {where(scored: false)}
 
   def self.score_pick(prop)
-    # TODO: batch processing
-    #slightly faster....
     UserPick.where("prop_id = ?", prop.id).find_each do |pick|
      if pick.side == "away" && prop.away_team_won
        pick.update(side_won: true, scored: true)
